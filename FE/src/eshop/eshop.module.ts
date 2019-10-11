@@ -5,13 +5,15 @@ import { EShopComponent } from './eshop.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './products/product/product.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     EShopComponent,
     NavbarComponent,
     ProductsComponent,
-    ProductComponent
+    ProductComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule
