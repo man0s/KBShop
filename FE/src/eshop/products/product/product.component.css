@@ -45,7 +45,7 @@ hr {
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: #e8e8e8;
+  /*background-color: #e8e8e8;*/
   content: '';
 }
 
