@@ -1,20 +1,8 @@
-.product-list {
-  overflow: hidden;
-  -webkit-perspective: 1000px;
-  -moz-perspective: 1000px;
-  -ms-perspective: 1000px;
-  perspective: 1000px;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
-
-.product-item {
+.product-item  {
   padding: 10px;
 }
 
-.product-item .product-container {
+.product-container {
   text-align: left;
   font: normal 14px sans-serif;
   background-color: #ffffff;
@@ -24,7 +12,7 @@
   padding: 25px;
 }
 
-.product-item a.product-image {
+a.product-image {
   display: block;
   text-align: center;
   box-shadow: 0 0 20px 8px #f3f3f3 inset;
@@ -34,11 +22,11 @@
   box-sizing: border-box;
 }
 
-.product-item a.product-image img {
+a.product-image img {
   height: 130px;
 }
 
-.product-item h2 {
+h2 {
   font-size: 18px;
   /*white-space: nowrap;*/
   /*!*overflow: hidden;*!*/
@@ -61,12 +49,12 @@ hr {
   content: '';
 }
 
-.product-item h2 a {
+h2 a {
   text-decoration: none;
   color: #2b2b2b;
 }
 
-.product-item a.small-text {
+a.small-text {
   color: #808080;
   text-decoration: none;
   margin-top: 20px;
@@ -76,18 +64,18 @@ hr {
   font-size: 12px;
 }
 
-.product-item .product-rating {
+.product-rating {
   color: #f09911;
   font-size: 14px;
 }
 
-.product-item .product-rating a.small-text {
+.product-rating a.small-text {
   text-align: left;
   margin: 0 0 0 10px;
   display: inline-block;
 }
 
-.product-item p.product-description {
+p.product-description {
   margin-top: 20px;
   color: #5d5d5d;
   line-height: 1.45;
@@ -95,7 +83,7 @@ hr {
   margin-bottom: 20px;
 }
 
-.product-item button {
+button {
   border-radius: 2px;
   background: #87bae1;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
@@ -106,30 +94,30 @@ hr {
   padding: 8px 20px;
 }
 
-.product-item button:active {
+button:active {
   background: #87bae1;
   color: #fff;
   border: 0;
 }
 
-.product-item button:focus {
+button:focus {
   background: #87bae1;
   outline: none;
   color: #fff;
 }
 
-.product-item button:hover {
+button:hover {
   background: #66ABE0;
   color: #fff;
 }
 
-.product-item button:focus:active {
+button:focus:active {
   background: #87bae1;
   outline: none;
   color: #fff;
 }
 
-.product-item .product-price {
+.product-price {
   color: #4e4e4e;
   font-weight: bold;
   font-size: 20px;
