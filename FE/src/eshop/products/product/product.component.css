@@ -83,9 +83,9 @@ p.product-description {
   margin-bottom: 20px;
 }
 
-button {
+.btn-add {
   border-radius: 2px;
-  background: #87bae1;
+  background: #56c6c6;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
   border: 0;
   color: #ffffff;
@@ -94,27 +94,9 @@ button {
   padding: 8px 20px;
 }
 
-button:active {
-  background: #87bae1;
-  color: #fff;
-  border: 0;
-}
-
-button:focus {
-  background: #87bae1;
-  outline: none;
-  color: #fff;
-}
-
-button:hover {
-  background: #66ABE0;
-  color: #fff;
-}
-
-button:focus:active {
-  background: #87bae1;
-  outline: none;
-  color: #fff;
+.btn-add:hover, .btn-add:active {
+  color: #ffffff !important;
+  background-color: #3baeae !important;
 }
 
 .product-price {

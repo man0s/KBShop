@@ -190,14 +190,13 @@
 }
 
 .navigation-clean-button .navbar-text .action-button:hover {
-  background: #66d7d7;
+  background: #3baeae;
 }
 
 .navigation-clean-button.navbar-dark .action-button, .navigation-clean-button.navbar-dark .action-button:active {
-  background: #208f8f;
+  background: #56c6c6;
 }
 
 .navigation-clean-button.navbar-dark .action-button:hover {
-  background: #269d9d;
+  background: #56c6c6;
 }
-

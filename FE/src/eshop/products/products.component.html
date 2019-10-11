@@ -1,18 +1,9 @@
 <div class="container">
   <div class="row product-list">
 
-    <div app-product class="col-sm-6 col-md-4 product-item"></div>
-    <div app-product class="col-sm-6 col-md-4 product-item"></div>
-    <div app-product class="col-sm-6 col-md-4 product-item"></div>
-    <div app-product class="col-sm-6 col-md-4 product-item"></div>
-    <div app-product class="col-sm-6 col-md-4 product-item"></div>
-    <div app-product class="col-sm-6 col-md-4 product-item"></div>
-    <div app-product class="col-sm-6 col-md-4 product-item"></div>
-    <div app-product class="col-sm-6 col-md-4 product-item"></div>
-    <div app-product class="col-sm-6 col-md-4 product-item"></div>
-    <div app-product class="col-sm-6 col-md-4 product-item"></div>
-    <div app-product class="col-sm-6 col-md-4 product-item"></div>
-    <div app-product class="col-sm-6 col-md-4 product-item"></div>
+    <ng-container *ngFor="let product of products">
+      <div app-product [product]="product" class="col-sm-6 col-md-4 product-item"></div>
+    </ng-container>
 
   </div>
 </div>

@@ -1,20 +1,20 @@
   <div class="product-container">
     <div class="row">
-      <div class="col-md-12"><a class="product-image" href="#"><img src="https://cdn.plaisio.gr/mms/Product-Images/PlaisioGr/3/3/0/8/7/1/5/3308715.jpg?h=800&w=800&hash=36A8A6C767B5FA5AD075417A266A59BD8C608580"></a></div>
+      <div class="col-md-12"><a class="product-image" href="#"><img [src]="product.image"></a></div>
     </div>
     <div class="row">
       <div class="col-12">
-        <h2><a href="#">Apple iPhone 11 Pro 256GB</a></h2>
+        <h2><a href="#">{{product.title}}</a></h2>
       </div>
     </div>
     <div class="row">
       <div class="col-12">
-        <!--            <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. </p>-->
+        <!--            <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
         <hr>
         <div class="row">
-          <div class="col-6"><button class="btn btn-light" type="button">Buy Now!</button></div>
+          <div class="col-6"><button class="btn btn-add" type="button">Add to Basket</button></div>
           <div class="col-6">
-            <p class="product-price">1.429,00 €</p>
+            <p class="product-price">{{product.price | currency: ' '}} €</p>
           </div>
         </div>
       </div>
