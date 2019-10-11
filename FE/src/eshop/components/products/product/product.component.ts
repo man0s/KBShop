@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { Product } from '../../shared/product.model';
+import { Product } from '../../../models/product.model';
 
 @Component({
   // tslint:disable-next-line:component-selector
