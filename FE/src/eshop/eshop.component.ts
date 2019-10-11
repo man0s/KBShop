@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./eshop.component.css']
 })
 export class EShopComponent {
-  title = 'FE';
+  title = 'KBShop';
 }
