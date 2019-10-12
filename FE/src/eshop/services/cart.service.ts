@@ -55,6 +55,15 @@ export class CartService {
     this.dispatch(cart);
   }
 
+  public removeItem(product: Product): void {
+    const cart = this.retrieve();
+    cart.items.splice(cart.items.findIndex((p) => p.id === product.id), 1);
+
+    this.calculateCart(cart);
+    this.save(cart);
+    this.dispatch(cart);
+  }
+
   public empty(): void {
     const newCart = new Cart();
     this.save(newCart);

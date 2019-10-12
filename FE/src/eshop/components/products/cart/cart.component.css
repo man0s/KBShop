@@ -1,3 +1,32 @@
 .cart {
   margin-top: 30px;
 }
+
+.cartItemClose{
+  margin-top: -3px;
+  text-decoration: none;
+  font-size: 22px;
+  color: #555555;
+  display: flex;
+  transition: 0.5s;
+}
+
+.cartItemClose:hover {
+  text-decoration: none;
+}
+h5 {
+  text-overflow: ellipsis;
+  font-weight: 800;
+  word-break: break-word;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp:1 ;
+  -webkit-box-orient: vertical;
+}
+
+.btn-responsive {
+  white-space: normal !important;
+  word-wrap: break-word;
+}
