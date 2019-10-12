@@ -1,16 +1,14 @@
 export class Product {
-  id: number;
+  id: string;
   title: string;
   image: string;
   price: number;
-  quantity: number;
 
-  constructor(id: number, title: string, image: string, price: number, quantity: number = 0) {
-    this.id = id;
-    this.title = title;
-    this.image = image;
-    this.price = price;
-    this.quantity = quantity;
+  public updateFrom(product: Product): void {
+    this.id = product.id;
+    this.title = product.title;
+    this.image = product.image;
+    this.price = product.price;
   }
 }
 

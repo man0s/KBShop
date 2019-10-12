@@ -12,7 +12,7 @@
         <!--            <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
         <hr>
         <div class="row">
-          <div class="col-6"><button class="btn btn-add" type="button">Add to Basket</button></div>
+          <div class="col-6"><button class="btn btn-add" type="button" (click)="addProductToCart(product)">Add to Basket</button></div>
           <div class="col-6">
             <p class="product-price">{{product.price | currency: ' '}} €</p>
           </div>

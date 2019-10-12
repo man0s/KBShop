@@ -7,6 +7,11 @@ import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/products/product/product.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CartComponent } from './components/products/cart/cart.component';
+import {AppRoutingModule} from './eshop.routing';
+import {ProductService} from './services/product.service';
+import { HttpClientModule } from '@angular/common/http';
+import {LocalStorageService, StorageService} from './services/storage.service';
+import {CartService} from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -18,9 +23,19 @@ import { CartComponent } from './components/products/cart/cart.component';
     CartComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    LocalStorageService,
+    { provide: StorageService, useClass: LocalStorageService },
+    {
+      deps: [StorageService, ProductService],
+      provide: CartService,
+      useClass: CartService
+    }
+  ],
   bootstrap: [EShopComponent]
 })
 export class EShopModule { }

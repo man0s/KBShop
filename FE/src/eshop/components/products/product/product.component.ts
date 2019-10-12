@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../../models/product.model';
+import {Observable, Observer} from 'rxjs';
+import { CartService } from 'src/eshop/services/cart.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -10,7 +12,27 @@ import { Product } from '../../../models/product.model';
 export class ProductComponent implements OnInit {
   @Input() product: Product;
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
+
+  public addProductToCart(product: Product): void {
+    this.cartService.addItem(product, 1);
+  }
+
+  public removeProductFromCart(product: Product): void {
+    this.cartService.addItem(product, -1);
+  }
+
+  public productInCart(product: Product): boolean {
+    return Observable.create((obs: Observer<boolean>) => {
+      const sub = this.cartService
+        .get()
+        .subscribe((cart) => {
+          obs.next(cart.items.some((i) => i.id === product.id));
+          obs.complete();
+        });
+      sub.unsubscribe();
+    });
+  }
 
   ngOnInit() {
   }
