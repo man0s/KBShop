@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Subscription} from 'rxjs';
+import {Product} from '../../../models/product.model';
+import {ProductService} from '../../../services/product.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }

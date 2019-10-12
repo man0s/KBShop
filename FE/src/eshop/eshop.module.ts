@@ -6,7 +6,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/products/product/product.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { CartComponent } from './components/cart/cart.component';
+import { CartComponent } from './components/products/cart/cart.component';
 
 @NgModule({
   declarations: [
