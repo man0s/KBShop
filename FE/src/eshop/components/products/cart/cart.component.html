@@ -28,7 +28,7 @@
 
         <li class="list-group-item d-flex justify-content-between">
           <span style="margin: auto;">Total: <strong>{{(cart | async).priceTotal | currency: ' '}} €</strong></span>
-          <button type="button" class="btn btn-success btn-responsive" (click)="emptyCart()">Checkout <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+          <button [attr.disabled]="itemCount === 0 ? true : null" type="button" class="btn btn-success btn-responsive" routerLink="/checkout">Checkout <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
         </li>
       </ul>
     </div>

@@ -12,6 +12,7 @@ import {ProductService} from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import {LocalStorageService, StorageService} from './services/storage.service';
 import {CartService} from './services/cart.service';
+import { CheckoutComponent } from './components/products/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {CartService} from './services/cart.service';
     ProductsComponent,
     ProductComponent,
     FooterComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
