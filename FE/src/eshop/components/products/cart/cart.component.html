@@ -14,7 +14,7 @@
 
 
         <ng-container *ngFor="let item of (cart | async).items">
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <li class="list-group-item d-flex justify-content-between lh-condensed" style="border-radius: 0">
                     <div class="col-sm-10" >
                       <h5><b>{{item.product.title}}</b></h5>
                       <div class="text-muted" style="padding-top: 8px">{{item.product.price * item.qty}}€</div>
@@ -28,7 +28,7 @@
 
         <li class="list-group-item d-flex justify-content-between">
           <span style="margin: auto;">Total: <strong>{{(cart | async).priceTotal | currency: ' '}} €</strong></span>
-          <button [attr.disabled]="itemCount === 0 ? true : null" type="button" class="btn btn-success btn-responsive" routerLink="/checkout">Checkout <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+          <button [attr.disabled]="itemCount === 0 ? true : null" type="button" class="btn btn-add btn-responsive" routerLink="/checkout">Checkout <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
         </li>
       </ul>
     </div>

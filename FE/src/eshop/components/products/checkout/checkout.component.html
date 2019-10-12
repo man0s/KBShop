@@ -1,1 +1,56 @@
-dsds
+<div class="container">
+  <br>
+  <div><h1 style="margin-bottom: 0; text-align: center;">Παραγγελία</h1></div>
+  <hr style="margin-top: 5px; margin-bottom: 0px;">
+  <div class="row">
+    <div class="col-md-4">
+      <h4>
+        <br>
+        <span class="text-muted" style="margin-bottom: 0">Cart </span>
+        <span style="margin-bottom: 3px;" class="badge badge-secondary badge-pill">{{itemCount}}</span>
+      </h4>
+      <ul class="list-group">
+
+        <ng-container *ngFor="let item of (cart | async).items">
+          <li class="list-group-item d-flex justify-content-between lh-condensed" style="border-radius: 0">
+            <div>
+              <h5><b>{{item.product.title}} ({{item.qty}})</b></h5>
+              <span class="text-muted">{{item.product.price}}€</span>
+            </div>
+          </li>
+        </ng-container>
+
+        <li class="list-group-item d-flex justify-content-between" style="border-radius: 0">
+          <span>Σύνολο: </span>
+          <strong>{{(cart | async).priceTotal}}€</strong>
+        </li>
+      </ul>
+      <hr>
+        <a routerLink="/" type="button" class="btn btn-add">Επιστροφή στον Κατάλογο</a>
+    </div>
+    <div class="col-md-8">
+      <br>
+      <h4 style="margin-bottom: 18px">Στοιχεία Παράδοσης</h4>
+      <form action="/checkout" method="POST" style="border: 1px solid rgba(0,0,0,.125)">
+        <div class="col-md-6 address_margin">
+          <label for="firstName">Όνομα</label>
+          <input type="text" class="form-control" name="firstName" placeholder="Όνομα" value="" required>
+        </div>
+        <div class="col-md-6 address_margin">
+          <label for="lastName">Επώνυμο</label>
+          <input type="text" class="form-control" name="lastName" placeholder="Επώνυμο" value="" required>
+        </div>
+        <br>
+        <div class="col-md-12 form-group address_margin">
+          <label for="address">Διεύθυνση</label>
+          <input type="text" class="form-control" name="address" id="location_input" maxlength="100" placeholder="Οδός & Αριθμός" required>
+        </div>
+        <br>
+        <button class="btn btn-success btn-lg btn-block btn-add" type="submit">Ολοκλήρωση Παραγγελίας</button>
+      </form>
+    </div>
+
+
+  </div>
+  <br>
+</div>
