@@ -27,7 +27,7 @@
         </ng-container>
 
         <li class="list-group-item d-flex justify-content-between">
-          <span style="margin: auto">Total: <strong>{{(cart | async).priceTotal | currency: ' '}} €</strong></span>
+          <span style="margin: auto;">Total: <strong>{{(cart | async).priceTotal | currency: ' '}} €</strong></span>
           <button type="button" class="btn btn-success btn-responsive" (click)="emptyCart()">Checkout <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
         </li>
       </ul>
