@@ -4,9 +4,7 @@ import { CartProduct } from '../models/cart-product.model';
 import { Product } from '../models/product.model';
 import { Cart } from '../models/cart.model';
 import { ProductService } from './product.service';
-import {Observable, Observer} from 'rxjs';
-
-const CART_KEY = 'cart';
+import { Observable, Observer } from 'rxjs';
 
 @Injectable()
 export class CartService {
@@ -79,7 +77,7 @@ export class CartService {
 
   private retrieve(): Cart {
     const cart = new Cart();
-    const storedCart = this.storage.getItem(CART_KEY);
+    const storedCart = this.storage.getItem('cart');
     if (storedCart) {
       cart.updateFrom(JSON.parse(storedCart));
     }
@@ -88,7 +86,7 @@ export class CartService {
   }
 
   private save(cart: Cart): void {
-    this.storage.setItem(CART_KEY, JSON.stringify(cart));
+    this.storage.setItem('cart', JSON.stringify(cart));
   }
 
   private dispatch(cart: Cart): void {
