@@ -13,3 +13,20 @@
   color: #ffffff !important;
   background-color: #3baeae !important;
 }
+
+.form_margin {
+  margin-bottom: 0;
+}
+
+.cartItemClose{
+  margin-top: -3px;
+  text-decoration: none;
+  font-size: 22px;
+  color: #555555;
+  display: flex;
+  transition: 0.5s;
+}
+
+.cartItemClose:hover {
+  text-decoration: none;
+}

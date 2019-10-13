@@ -13,9 +13,12 @@
 
         <ng-container *ngFor="let item of (cart | async).items">
           <li class="list-group-item d-flex justify-content-between lh-condensed" style="border-radius: 0">
-            <div>
+            <div class="col-sm-11">
               <h5><b>{{item.product.title}} ({{item.qty}})</b></h5>
               <span class="text-muted">{{item.product.price}}€</span>
+            </div>
+            <div class="col-sm-1" style="padding-left: 0px">
+              <a (click)="removeProduct(item.product)" class="cartItemClose">&times;</a>
             </div>
           </li>
         </ng-container>
@@ -26,27 +29,40 @@
         </li>
       </ul>
       <hr>
-        <a routerLink="/" type="button" class="btn btn-add">Επιστροφή στον Κατάλογο</a>
+        <button routerLink="/" type="button" class="btn btn-add">Επιστροφή στον Κατάλογο</button>
     </div>
     <div class="col-md-8">
       <br>
       <h4 style="margin-bottom: 18px">Στοιχεία Παράδοσης</h4>
       <form action="/checkout" method="POST" style="border: 1px solid rgba(0,0,0,.125)">
-        <div class="col-md-6 address_margin">
-          <label for="firstName">Όνομα</label>
-          <input type="text" class="form-control" name="firstName" placeholder="Όνομα" value="" required>
+
+        <div class="row" style="padding: 15px">
+          <div class="col-md-6">
+            <label class="form_margin" for="firstName">Όνομα</label>
+            <input type="text" class="form-control" name="firstName" placeholder="Όνομα" value="" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form_margin" for="lastName">Επώνυμο</label>
+            <input type="text" class="form-control" name="lastName" placeholder="Επώνυμο" value="" required>
+          </div>
         </div>
-        <div class="col-md-6 address_margin">
-          <label for="lastName">Επώνυμο</label>
-          <input type="text" class="form-control" name="lastName" placeholder="Επώνυμο" value="" required>
+        <div class="row" style="padding: 15px">
+          <div class="col-md-6">
+            <label class="form_margin" for="firstName">Τηλέφωνο</label>
+            <input type="tel" class="form-control" name="firstName" placeholder="Τηλέφωνο" pattern="[0-9]{10}" value="" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form_margin" for="lastName">Email</label>
+            <input type="email" class="form-control" name="lastName" placeholder="Email" value="" required>
+          </div>
         </div>
         <br>
-        <div class="col-md-12 form-group address_margin">
-          <label for="address">Διεύθυνση</label>
+        <div class="col-md-12 form-group">
+          <label class="form_margin" for="address">Διεύθυνση</label>
           <input type="text" class="form-control" name="address" id="location_input" maxlength="100" placeholder="Οδός & Αριθμός" required>
         </div>
         <br>
-        <button class="btn btn-success btn-lg btn-block btn-add" type="submit">Ολοκλήρωση Παραγγελίας</button>
+        <button class="btn btn-success btn-lg btn-block btn-add" style="padding: 15px" type="submit">Ολοκλήρωση Παραγγελίας</button>
       </form>
     </div>
 

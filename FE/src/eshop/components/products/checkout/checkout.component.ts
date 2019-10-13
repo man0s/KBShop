@@ -27,6 +27,10 @@ export class CheckoutComponent implements OnInit {
     this.cartService.empty();
   }
 
+  public removeProduct(product: Product): void {
+    this.cartService.removeItem(product);
+  }
+
   public ngOnInit(): void {
     this.cart = this.cartService.get();
     this.cartSubscription = this.cart.subscribe((cart) => {
