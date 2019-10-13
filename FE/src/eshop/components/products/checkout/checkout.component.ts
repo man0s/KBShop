@@ -5,6 +5,7 @@ import {Product} from '../../../models/product.model';
 import {ProductService} from '../../../services/product.service';
 import {CartService} from '../../../services/cart.service';
 import {CartProduct} from '../../../models/cart-product.model';
+import {LocalStorageService} from '../../../services/storage.service';
 
 @Component({
   selector: 'app-checkout',
