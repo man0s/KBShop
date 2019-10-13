@@ -200,3 +200,9 @@
 .navigation-clean-button.navbar-dark .action-button:hover {
   background: #56c6c6;
 }
+
+.dropdown-menu {
+  width: 200px;
+  border-radius: 0;
+  padding: 10px 0;
+}
