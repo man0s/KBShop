@@ -19,6 +19,9 @@ export class ProductsManagementComponent implements OnInit {
 
   deleteProduct(productID: number) {
     this.productService.deleteProduct(productID);
+    this.products.subscribe(
+      products => this.products = this.productService.getProducts()
+    );
 
   }
 

@@ -23,8 +23,9 @@ export class ProductService {
 
   public deleteProduct(productID: number){
     this.http.delete("http://localhost:8080/api/deleteProduct/" + productID)
-      .subscribe(res =>
-        this.products = this.getProducts()
+      .subscribe(
+        result => console.log("Product with id(" + productID + ") hase been deleted!"),
+        err => console.error(err)
       );
   }
 
