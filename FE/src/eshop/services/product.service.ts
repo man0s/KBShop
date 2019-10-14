@@ -16,7 +16,7 @@ export class ProductService {
 
 
   public all(): Observable<Product[]> {
-    return this.http.get('./assets/products.json')
+    return this.http.get('http://localhost:8080/api/getProducts')
       .pipe(map((response: any) => response)
       );
   }
