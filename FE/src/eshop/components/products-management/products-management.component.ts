@@ -10,11 +10,19 @@ import {Observable} from 'rxjs';
 })
 export class ProductsManagementComponent implements OnInit {
   public products: Observable<Product[]>;
+  private newProduct: any = {};
 
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
     this.products = this.productService.getProducts();
+  }
+
+  createProduct(product: Product) {
+    this.productService.createProduct(product);
+    this.products.subscribe(
+      products => this.products = this.productService.getProducts()
+    );
   }
 
   deleteProduct(productID: number) {
@@ -24,9 +32,16 @@ export class ProductsManagementComponent implements OnInit {
     );
   }
 
-  getProductQty(productID: number) {
-    this.productService.getProductQty(productID);
+  editProduct(product: Product) {
+    this.productService.editProduct(product);
+    this.products.subscribe(
+      products => this.products = this.productService.getProducts()
+    );
   }
+  //
+  // getProductQty(productID: number) {
+  //   this.productService.getProductQty(productID);
+  // }
 
 
 }

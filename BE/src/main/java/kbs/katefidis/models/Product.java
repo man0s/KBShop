@@ -1,6 +1,7 @@
 package kbs.katefidis.models;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Entity
 @Table(name = "PRODUCTS")

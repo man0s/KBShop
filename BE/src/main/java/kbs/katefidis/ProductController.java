@@ -17,8 +17,8 @@ public class ProductController {
     }
 
     @PostMapping(path = "/createProduct", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Long createProductRequest(@RequestBody Product product){
-        return productService.createProduct(product).getId();
+    public Product createProductRequest(@RequestBody Product product){
+        return productService.createProduct(product);
     }
 
     @GetMapping(path = "/getProducts", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -26,14 +26,14 @@ public class ProductController {
         return productService.findAll();
     }
 
-    @GetMapping(path = "/getProductQty/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Integer getProductsRequest(@PathVariable("id") Long productID){
-        return productService.getProductByQuantity(productID);
+    @DeleteMapping(path = "/deleteProduct/{id}")
+    public void deleteProductRequest(@PathVariable("id") Long productID){
+        productService.deleteProduct(productID);
     }
 
-    @DeleteMapping(path = "/deleteProduct/{id}")
-    public void deleteProduct(@PathVariable("id") Long productID){
-        productService.deleteProduct(productID);
+    @PutMapping(path = "/editProduct", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Product editProductRequest(@RequestBody Product product){
+       return productService.editProduct(product);
     }
 
 

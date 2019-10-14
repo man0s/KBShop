@@ -13,7 +13,7 @@
 
 .btn-add {
   border-radius: 2px;
-  background: #56c6c6;
+  background: #10b65b;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
   border: 0;
   color: #ffffff;
@@ -24,5 +24,38 @@
 
 .btn-add:hover, .btn-add:active {
   color: #ffffff !important;
+  background-color: #10904b !important;
+}
+
+.btn-save {
+  border-radius: 2px;
+  background: #56c6c6;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+  border: 0;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 8px 20px;
+}
+
+.btn-save:hover, .btn-save:active {
+  color: #ffffff !important;
   background-color: #3baeae !important;
 }
+
+.btn-remove {
+  border-radius: 2px;
+  background: #d44e45;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+  border: 0;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 8px 20px;
+}
+
+.btn-remove:hover, .btn-remove:active {
+  color: #ffffff !important;
+  background-color: #c6484c !important;
+}
+

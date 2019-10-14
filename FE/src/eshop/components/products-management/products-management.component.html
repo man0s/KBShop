@@ -4,6 +4,7 @@
       <thead>
       <tr>
         <th>Όνομα</th>
+        <th>Εικόνα</th>
         <th>Τιμή</th>
         <th>Απόθεμα</th>
         <th>Ενέργειες</th>
@@ -12,35 +13,47 @@
       <tbody>
       <tr *ngFor="let product of products  | async">
         <td>
-          <label>
+          <label style="display: block;">
             <input [(ngModel)]="product.title" class="form-control" type="text" name="{{product.title}}" />
           </label>
         </td>
         <td>
           <label>
-            <input [(ngModel)]="product.price" class="form-control" type="text" name="{{product.price}}" />
+            <input [(ngModel)]="product.image" class="form-control" type="text" name="{{product.image}}" />
           </label>
         </td>
         <td>
           <label>
-            <input [(ngModel)]="product.quantity" class="form-control" type="text" name="{{product.quantity}}" />
+            <input [(ngModel)]="product.price" class="form-control" type="number" step="any" name="{{product.price}}" />
           </label>
         </td>
         <td>
-          <button class="btn btn-add"  type="button" (click)="deleteProduct(product.id)">Delete</button>
+          <label>
+            <input [(ngModel)]="product.quantity" class="form-control" type="number" name="{{product.quantity}}" />
+          </label>
+        </td>
+        <td>
+          <button style="margin: 0 5px" class="btn btn-save"  type="button" (click)="editProduct(product)"><i class="fa fa-floppy-o" aria-hidden="true"></i> Αποθήκευση</button>
+          <button style="margin: 0 5px" class="btn btn-remove"  type="button" (click)="deleteProduct(product.id)"><i class="fa fa-trash" aria-hidden="true"></i> Διαγραφή</button>
         </td>
       </tr>
-<!--      <tr>-->
-<!--        <td>-->
-<!--          <label for="newAttributeName"></label><input class="form-control" type="text" id="newAttributeName" [(ngModel)]="newAttribute.name" name="newAttributeName" />-->
-<!--        </td>-->
-<!--        <td>-->
-<!--          <label for="newAttributePrice"></label><input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.price" name="newAttributePrice" />-->
-<!--        </td>-->
-<!--        <td>-->
-<!--          <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>-->
-<!--        </td>-->
-<!--      </tr>-->
+      <tr>
+        <td>
+          <input class="form-control" type="text" [(ngModel)]="newProduct.title" name="{{newProduct.title}}" />
+        </td>
+        <td>
+          <input class="form-control" type="text" [(ngModel)]="newProduct.image" name="{{newProduct.image}}" />
+        </td>
+        <td>
+          <input class="form-control" type="text" [(ngModel)]="newProduct.price" name="{{newProduct.price}}" />
+        </td>
+        <td>
+          <input class="form-control" type="text" [(ngModel)]="newProduct.quantity" name="{{newProduct.quantity}}" />
+        </td>
+        <td>
+          <button class="btn btn-add" type="button" (click)="createProduct(newProduct)"><i class="fa fa-plus-square" aria-hidden="true"></i> Προσθήκη Προιόντος</button>
+        </td>
+      </tr>
       </tbody>
     </table>
   </div>

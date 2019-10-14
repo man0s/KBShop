@@ -21,16 +21,26 @@ export class ProductService {
       );
   }
 
-  public getProductQty(productID: number) {
-    return this.http.get("http://localhost:8080/api/getProductQty" + productID)
-      .pipe(map((response: any) => response)
+  public createProduct(product: Product) {
+    this.http.post("http://localhost:8080/api/createProduct", product)
+      .subscribe(
+        result => console.log("Product with title(" + product.title + ") has been created!"),
+        err => console.error(err)
+      );
+  }
+
+  public editProduct(product: Product){
+    this.http.put("http://localhost:8080/api/editProduct", product)
+      .subscribe(
+        result => console.log("Product with id(" + product.id + ") has been updated!"),
+        err => console.error(err)
       );
   }
 
   public deleteProduct(productID: number){
     this.http.delete("http://localhost:8080/api/deleteProduct/" + productID)
       .subscribe(
-        result => console.log("Product with id(" + productID + ") hase been deleted!"),
+        result => console.log("Product with id(" + productID + ") has been deleted!"),
         err => console.error(err)
       );
   }

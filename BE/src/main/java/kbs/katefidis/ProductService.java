@@ -2,7 +2,6 @@ package kbs.katefidis;
 
 import kbs.katefidis.models.Product;
 import kbs.katefidis.repositories.ProductRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -31,8 +30,14 @@ public class ProductService {
         productRepository.deleteById(productID);
     }
 
-
-    public Integer getProductByQuantity(Long productID) {
-        return productRepository.getProductQuantity(productID);
+    @Transactional
+    public Product editProduct(Product product) {
+        Product newProduct = productRepository.getOne(product.getId());
+        newProduct.setImage(product.getImage());
+        newProduct.setPrice(product.getPrice());
+        newProduct.setQuantity(product.getQuantity());
+        newProduct.setTitle(product.getTitle());
+        return productRepository.save(newProduct);
     }
+
 }
