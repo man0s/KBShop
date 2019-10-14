@@ -17,11 +17,9 @@ export class CheckoutComponent implements OnInit {
   public cartItems: CartProduct[];
   public itemCount: number;
 
-  private products: Product[];
   private cartSubscription: Subscription;
 
-  public constructor(private productService: ProductService,
-                     private cartService: CartService) {
+  public constructor(private cartService: CartService) {
   }
 
   public emptyCart(): void {
@@ -36,17 +34,6 @@ export class CheckoutComponent implements OnInit {
     this.cart = this.cartService.get();
     this.cartSubscription = this.cart.subscribe((cart) => {
       this.itemCount = cart.items.map((x) => x.qty).reduce((p, n) => p + n, 0);
-      this.productService.all().subscribe((products) => {
-        this.products = products;
-        this.cartItems = cart.items
-          .map((item) => {
-            const product = this.products.find((p) => p.id === item.id);
-            return {
-              ...item,
-              product,
-              totalCost: product.price * item.qty };
-          });
-      });
     });
   }
 

@@ -30,6 +30,10 @@ export class CartComponent implements OnInit, OnDestroy {
     this.cartService.removeItem(product);
   }
 
+  public getItemCount(): number {
+    return this.itemCount;
+  }
+
   public ngOnInit(): void {
     this.products = this.productService.all();
     this.cart = this.cartService.get();
