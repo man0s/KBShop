@@ -21,5 +21,11 @@ export class ProductService {
       );
   }
 
+  public deleteProduct(product: Product){
+    return this.http.delete('http://localhost:8080/api/getProducts')
+      .pipe(map((response: any) => response)
+      );
+  }
+
 
 }

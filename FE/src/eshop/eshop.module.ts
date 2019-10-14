@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {LocalStorageService, StorageService} from './services/storage.service';
 import {CartService} from './services/cart.service';
 import { CheckoutComponent } from './components/products/checkout/checkout.component';
+import { ProductsManagementComponent } from './components/products-management/products-management.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { CheckoutComponent } from './components/products/checkout/checkout.compo
     ProductComponent,
     FooterComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ProductsManagementComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     LocalStorageService,

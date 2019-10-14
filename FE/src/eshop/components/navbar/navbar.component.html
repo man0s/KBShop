@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background-color: rgb(247,247,247);height: 80px;">
-  <div class="container">
+  <div class="container-fluid" style="padding: 8.333333%">
         <a [routerLink]="['/']"><img src="assets/img/logo.png" ></a>
     <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navcol-1">
@@ -7,7 +7,9 @@
         <li class="nav-item" role="presentation"></li>
         <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Διαχείριση</a>
           <div class="dropdown-menu" role="menu">
-            <a class="dropdown-item" role="presentation" href="#"><i class="fa fa-gear" aria-hidden="true"></i> Πίνακας Ελέγχου</a>
+            <a class="dropdown-item" role="presentation" [routerLink]="['/']"><i class="fa fa-users" aria-hidden="true"></i> Πελατών</a>
+            <a class="dropdown-item" role="presentation" [routerLink]="['/products']"><i class="fa fa-archive" aria-hidden="true"></i> Αποθεμάτων</a>
+            <a class="dropdown-item" role="presentation" [routerLink]="['/']"><i class="fa fa-truck" aria-hidden="true"></i> Παραγγελιών</a>
           </div>
         </li>
       </ul>
