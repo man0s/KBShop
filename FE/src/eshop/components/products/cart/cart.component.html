@@ -17,7 +17,7 @@
                 <li class="list-group-item d-flex justify-content-between lh-condensed" style="border-radius: 0">
                     <div class="col-sm-10" >
                       <h5><b>{{item.product.title}}</b></h5>
-                      <div class="text-muted" style="padding-top: 8px">{{item.product.price * item.qty}}€</div>
+                      <div class="text-muted" style="padding-top: 8px">{{item.product.price * item.qty | currency: ' '}} €</div>
                     </div>
                     <div class="col-sm-2" style="padding-left: 0px">
                       <a (click)="removeProduct(item.product)" class="cartItemClose">&times;</a>
@@ -27,7 +27,7 @@
         </ng-container>
 
         <li class="list-group-item d-flex justify-content-between">
-          <span style="margin: auto;">Total: <strong>{{(cart | async).priceTotal | currency: ' '}} €</strong></span>
+          <span style="margin: auto;">Σύνολο: <strong>{{(cart | async).priceTotal | currency: ' '}} €</strong></span>
           <button [attr.disabled]="itemCount === 0 ? true : null" type="button" class="btn btn-add btn-responsive" routerLink="/checkout">Συνέχεια</button>
         </li>
       </ul>

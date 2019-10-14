@@ -15,7 +15,7 @@
           <li class="list-group-item d-flex justify-content-between lh-condensed" style="border-radius: 0">
             <div class="col-sm-11">
               <h5><b>{{item.product.title}} ({{item.qty}})</b></h5>
-              <span class="text-muted">{{item.product.price}}€</span>
+              <span class="text-muted">{{item.product.price * item.qty | currency: ' '}} €</span>
             </div>
             <div class="col-sm-1" style="padding-left: 0px">
               <a (click)="removeProduct(item.product)" class="cartItemClose">&times;</a>
@@ -25,7 +25,7 @@
 
         <li class="list-group-item d-flex justify-content-between" style="border-radius: 0">
           <span>Σύνολο: </span>
-          <strong>{{(cart | async).priceTotal}}€</strong>
+          <strong>{{(cart | async).priceTotal | currency: ' '}} €</strong>
         </li>
       </ul>
       <hr>
