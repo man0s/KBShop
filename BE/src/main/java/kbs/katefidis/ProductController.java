@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT })
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class ProductController {
@@ -27,7 +27,7 @@ public class ProductController {
     }
 
     @DeleteMapping(path = "/deleteProduct/{id}")
-    public void deleteProduct(@PathVariable(value = "id") Long productID){
+    public void deleteProduct(@PathVariable("id") Long productID){
         productService.deleteProduct(productID);
     }
 

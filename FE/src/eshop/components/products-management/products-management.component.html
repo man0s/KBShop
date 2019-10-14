@@ -21,20 +21,20 @@
           </label>
         </td>
         <td>
-          <button class="btn btn-default"  type="button" (click)="deleteProduct(product)">Delete</button>
+          <button class="btn btn-add"  type="button" (click)="deleteProduct(product.id)">Delete</button>
         </td>
       </tr>
-      <tr>
-        <td>
-          <label for="newAttributeName"></label><input class="form-control" type="text" id="newAttributeName" [(ngModel)]="newAttribute.name" name="newAttributeName" />
-        </td>
-        <td>
-          <label for="newAttributePrice"></label><input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.price" name="newAttributePrice" />
-        </td>
-        <td>
-          <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
-        </td>
-      </tr>
+<!--      <tr>-->
+<!--        <td>-->
+<!--          <label for="newAttributeName"></label><input class="form-control" type="text" id="newAttributeName" [(ngModel)]="newAttribute.name" name="newAttributeName" />-->
+<!--        </td>-->
+<!--        <td>-->
+<!--          <label for="newAttributePrice"></label><input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.price" name="newAttributePrice" />-->
+<!--        </td>-->
+<!--        <td>-->
+<!--          <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>-->
+<!--        </td>-->
+<!--      </tr>-->
       </tbody>
     </table>
   </div>

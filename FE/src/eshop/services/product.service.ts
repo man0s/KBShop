@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -16,14 +16,15 @@ export class ProductService {
 
 
   public getProducts(): Observable<Product[]> {
-    return this.http.get('http://localhost:8080/api/getProducts')
+    return this.http.get("http://localhost:8080/api/getProducts")
       .pipe(map((response: any) => response)
       );
   }
 
-  public deleteProduct(product: Product){
-    return this.http.delete('http://localhost:8080/api/getProducts')
-      .pipe(map((response: any) => response)
+  public deleteProduct(productID: number){
+    this.http.delete("http://localhost:8080/api/deleteProduct/" + productID)
+      .subscribe(res =>
+        this.products = this.getProducts()
       );
   }
 

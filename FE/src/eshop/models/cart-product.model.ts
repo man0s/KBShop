@@ -1,7 +1,7 @@
 import { Product } from './product.model';
 
 export class CartProduct {
-  public id: string;
+  public id: number;
   public product: Product;
   public qty: number = 0;
 }
