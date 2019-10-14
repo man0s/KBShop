@@ -19,7 +19,7 @@ import {ProductsManagementComponent} from './components/products-management/prod
       },
       {
         component: ProductsManagementComponent,
-        path: 'products'
+        path: 'management/products'
       }
     ])
   ]

@@ -19,7 +19,7 @@ public class Product {
     private String image;
 
     @Column(name = "PRICE", nullable = false)
-    private Integer price;
+    private Double price;
 
     @Column(name = "QUANTITY", nullable = false)
     private Integer quantity;
@@ -48,11 +48,11 @@ public class Product {
         this.image = image;
     }
 
-    public Integer getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

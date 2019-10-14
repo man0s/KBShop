@@ -68,7 +68,7 @@ export class CartService {
     this.dispatch(newCart);
   }
 
-  private calculateCart(cart: Cart): void {
+  public calculateCart(cart: Cart): void {
     cart.itemsTotal = cart.items
       .map((item) => item.qty * this.products.find((p) => p.id === item.id).price)
       .reduce((previous, current) => previous + current, 0);

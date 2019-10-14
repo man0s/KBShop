@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProductService} from '../../services/product.service';
 import { Product } from 'src/eshop/models/product.model';
 import {Observable} from 'rxjs';
+import {CartService} from '../../services/cart.service';
 
 @Component({
   selector: 'app-products-management',
@@ -12,7 +13,7 @@ export class ProductsManagementComponent implements OnInit {
   public products: Observable<Product[]>;
   private newProduct: any = {};
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit() {
     this.products = this.productService.getProducts();
@@ -23,6 +24,7 @@ export class ProductsManagementComponent implements OnInit {
     this.products.subscribe(
       products => this.products = this.productService.getProducts()
     );
+    this.newProduct = {};
   }
 
   deleteProduct(productID: number) {
@@ -37,6 +39,7 @@ export class ProductsManagementComponent implements OnInit {
     this.products.subscribe(
       products => this.products = this.productService.getProducts()
     );
+    this.cartService.empty();
   }
   //
   // getProductQty(productID: number) {
