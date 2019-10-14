@@ -25,7 +25,7 @@ export class ProductComponent implements OnInit {
   public productInCart(product: Product): boolean {
     return Observable.create((obs: Observer<boolean>) => {
       const sub = this.cartService
-        .get()
+        .getCart()
         .subscribe((cart) => {
           obs.next(cart.items.some((i) => i.id === product.id));
           obs.complete();

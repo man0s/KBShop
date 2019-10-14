@@ -16,9 +16,9 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping(path = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Product createProductRequest(){
-        return productService.create();
+    @PostMapping(path = "/createProduct", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Long createProductRequest(@RequestBody Product product){
+        return productService.createProduct(product).getId();
     }
 
     @GetMapping(path = "/getProducts", produces = MediaType.APPLICATION_JSON_VALUE)

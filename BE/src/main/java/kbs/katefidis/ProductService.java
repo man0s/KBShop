@@ -20,12 +20,7 @@ public class ProductService {
     }
 
     @Transactional
-    public Product create() {
-        Product product = new Product();
-        product.setTitle("Apple iPhone 11 Pro 256GB");
-        product.setImage("https://i.imgur.com/fKEuHYq.jpg");
-        product.setPrice(1429);
-        product.setQuantity(10);
+    public Product createProduct(Product product) {
         return productRepository.save(product);
     }
 

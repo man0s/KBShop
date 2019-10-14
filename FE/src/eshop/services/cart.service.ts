@@ -16,7 +16,7 @@ export class CartService {
   public constructor(private storageService: StorageService,
                      private productService: ProductService) {
     this.storage = this.storageService.get();
-    this.productService.all().subscribe((products) => this.products = products);
+    this.productService.getProducts().subscribe((products) => this.products = products);
 
     this.subscriptionObservable = new Observable<Cart>((observer: Observer<Cart>) => {
       this.subscribers.push(observer);
@@ -27,7 +27,7 @@ export class CartService {
     });
   }
 
-  public get(): Observable<Cart> {
+  public getCart(): Observable<Cart> {
     return this.subscriptionObservable;
   }
 

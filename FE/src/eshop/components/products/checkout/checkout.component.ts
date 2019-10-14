@@ -31,7 +31,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.cart = this.cartService.get();
+    this.cart = this.cartService.getCart();
     this.cartSubscription = this.cart.subscribe((cart) => {
       this.itemCount = cart.items.map((x) => x.qty).reduce((p, n) => p + n, 0);
     });
