@@ -3,9 +3,10 @@
     <table class="table table-striped table-bordered">
       <thead>
       <tr>
-        <th>Title</th>
-        <th>Price</th>
-        <th>Action</th>
+        <th>Όνομα</th>
+        <th>Τιμή</th>
+        <th>Απόθεμα</th>
+        <th>Ενέργειες</th>
       </tr>
       </thead>
       <tbody>
@@ -18,6 +19,11 @@
         <td>
           <label>
             <input [(ngModel)]="product.price" class="form-control" type="text" name="{{product.price}}" />
+          </label>
+        </td>
+        <td>
+          <label>
+            <input [(ngModel)]="product.quantity" class="form-control" type="text" name="{{product.quantity}}" />
           </label>
         </td>
         <td>

@@ -26,6 +26,11 @@ public class ProductController {
         return productService.findAll();
     }
 
+    @GetMapping(path = "/getProductQty/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Integer getProductsRequest(@PathVariable("id") Long productID){
+        return productService.getProductByQuantity(productID);
+    }
+
     @DeleteMapping(path = "/deleteProduct/{id}")
     public void deleteProduct(@PathVariable("id") Long productID){
         productService.deleteProduct(productID);

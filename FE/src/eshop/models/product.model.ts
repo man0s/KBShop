@@ -3,6 +3,7 @@ export class Product {
   title: string;
   image: string;
   price: number;
+  quantity: number;
 
   public updateFrom(product: Product): void {
     this.id = product.id;

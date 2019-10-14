@@ -21,6 +21,12 @@ export class ProductService {
       );
   }
 
+  public getProductQty(productID: number) {
+    return this.http.get("http://localhost:8080/api/getProductQty" + productID)
+      .pipe(map((response: any) => response)
+      );
+  }
+
   public deleteProduct(productID: number){
     this.http.delete("http://localhost:8080/api/deleteProduct/" + productID)
       .subscribe(

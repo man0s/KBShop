@@ -22,7 +22,10 @@ export class ProductsManagementComponent implements OnInit {
     this.products.subscribe(
       products => this.products = this.productService.getProducts()
     );
+  }
 
+  getProductQty(productID: number) {
+    this.productService.getProductQty(productID);
   }
 
 

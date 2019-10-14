@@ -32,6 +32,7 @@ public class ProductService {
     }
 
 
-
-
+    public Integer getProductByQuantity(Long productID) {
+        return productRepository.getProductQuantity(productID);
+    }
 }
