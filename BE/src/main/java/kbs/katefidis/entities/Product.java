@@ -13,7 +13,7 @@ public class Product {
     @Column(name = "TITLE", nullable = false)
     private String title;
 
-    @Column(name = "IMAGE", nullable = false)
+    @Column(name = "IMAGE", nullable = true)
     private String image;
 
     @Column(name = "PRICE", nullable = false)

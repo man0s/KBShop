@@ -1,0 +1,53 @@
+<div class="product-list">
+  <div class="container-fluid" style="padding: 0 8.333333%;">
+    <h1 style="text-align: center;">Διαχείριση Πελατών</h1>
+    <hr>
+    <table class="table table-striped table-bordered">
+      <thead>
+      <tr>
+        <th>Όνομα</th>
+        <th>Επώνυμο</th>
+        <th>EMail</th>
+        <th>Ενέργειες</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users | async">
+        <td>
+          <label>
+            <input [(ngModel)]="user.name" class="form-control" type="text" name="{{user.name}}" />
+          </label>
+        </td>
+        <td>
+          <label>
+            <input [(ngModel)]="user.surname" class="form-control" type="text" name="{{user.surname}}" />
+          </label>
+        </td>
+        <td>
+          <label style="display: block;">
+            <input [(ngModel)]="user.email" class="form-control" type="text" step="any" name="{{user.email}}" />
+          </label>
+        </td>
+        <td>
+          <button style="margin: 2px 5px" class="btn btn-save"  type="button" (click)="editUser(user)"><i class="fa fa-floppy-o" aria-hidden="true"></i> Αποθήκευση</button>
+          <button style="margin: 2px 5px" class="btn btn-remove"  type="button" (click)="deleteUser(user.id)"><i class="fa fa-trash" aria-hidden="true"></i> Διαγραφή</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input class="form-control" type="text" [(ngModel)]="newUser.name" name="{{newUser.name}}" />
+        </td>
+        <td>
+          <input class="form-control" type="text" [(ngModel)]="newUser.surname" name="{{newUser.surname}}" />
+        </td>
+        <td>
+          <input class="form-control" type="text" [(ngModel)]="newUser.email" name="{{newUser.email}}" />
+        </td>
+        <td>
+          <button style="margin: 0 5px" class="btn btn-add" type="button" (click)="createUser(newUser)"><i class="fa fa-plus-square" aria-hidden="true"></i> Προσθήκη Πελάτη</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

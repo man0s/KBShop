@@ -1,5 +1,7 @@
 <div class="product-list">
   <div class="container-fluid" style="padding: 0 8.333333%;">
+    <h1 style="text-align: center;">Διαχείριση Αποθέματος</h1>
+    <hr>
     <table class="table table-striped table-bordered">
       <thead>
       <tr>
@@ -51,7 +53,7 @@
           <input class="form-control" type="text" [(ngModel)]="newProduct.quantity" name="{{newProduct.quantity}}" />
         </td>
         <td>
-          <button class="btn btn-add" type="button" (click)="createProduct(newProduct)"><i class="fa fa-plus-square" aria-hidden="true"></i> Προσθήκη Προιόντος</button>
+          <button style="margin: 0 5px" class="btn btn-add" type="button" (click)="createProduct(newProduct)"><i class="fa fa-plus-square" aria-hidden="true"></i> Προσθήκη Προιόντος</button>
         </td>
       </tr>
       </tbody>

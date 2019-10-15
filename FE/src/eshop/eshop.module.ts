@@ -13,8 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {LocalStorageService, StorageService} from './services/storage.service';
 import {CartService} from './services/cart.service';
 import { CheckoutComponent } from './components/products/checkout/checkout.component';
-import { ProductsManagementComponent } from './components/products-management/products-management.component';
+import { ProductsManagementComponent } from './components/management/products-management/products-management.component';
 import {FormsModule} from '@angular/forms';
+import { UsersManagementComponent } from './components/management/users-management/users-management.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {FormsModule} from '@angular/forms';
     FooterComponent,
     CartComponent,
     CheckoutComponent,
-    ProductsManagementComponent
+    ProductsManagementComponent,
+    UsersManagementComponent
   ],
   imports: [
     BrowserModule,
