@@ -36,10 +36,11 @@ export class ProductsManagementComponent implements OnInit {
 
   editProduct(product: Product) {
     this.productService.editProduct(product);
-    this.products.subscribe(
-      products => this.products = this.productService.getProducts()
-    );
     this.cartService.empty();
+    this.products.subscribe(
+      products => { this.products = this.productService.getProducts();
+      }
+    );
   }
   //
   // getProductQty(productID: number) {

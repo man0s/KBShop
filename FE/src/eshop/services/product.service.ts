@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
+const API_ENDPOINT = "http://localhost:8080/api";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,13 +18,13 @@ export class ProductService {
 
 
   public getProducts(): Observable<Product[]> {
-    return this.http.get("http://localhost:8080/api/getProducts")
+    return this.http.get(API_ENDPOINT + "/getProducts")
       .pipe(map((response: any) => response)
       );
   }
 
   public createProduct(product: Product) {
-    this.http.post("http://localhost:8080/api/createProduct", product)
+    this.http.post(API_ENDPOINT + "/createProduct", product)
       .subscribe(
         result => console.log("Product with title(" + product.title + ") has been created!"),
         err => console.error(err)
@@ -30,7 +32,7 @@ export class ProductService {
   }
 
   public editProduct(product: Product){
-    this.http.put("http://localhost:8080/api/editProduct", product)
+    this.http.put(API_ENDPOINT + "/editProduct", product)
       .subscribe(
         result => console.log("Product with id(" + product.id + ") has been updated!"),
         err => console.error(err)
@@ -38,7 +40,7 @@ export class ProductService {
   }
 
   public deleteProduct(productID: number){
-    this.http.delete("http://localhost:8080/api/deleteProduct/" + productID)
+    this.http.delete(API_ENDPOINT + "/deleteProduct/" + productID)
       .subscribe(
         result => console.log("Product with id(" + productID + ") has been deleted!"),
         err => console.error(err)

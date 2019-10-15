@@ -1,12 +1,10 @@
-package kbs.katefidis;
+package kbs.katefidis.services;
 
-import kbs.katefidis.models.Product;
+import kbs.katefidis.entities.Product;
 import kbs.katefidis.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductService {

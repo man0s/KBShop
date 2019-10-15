@@ -1,9 +1,9 @@
-package kbs.katefidis;
+package kbs.katefidis.controllers;
 
-import kbs.katefidis.models.Product;
+import kbs.katefidis.entities.Product;
+import kbs.katefidis.services.ProductService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @CrossOrigin

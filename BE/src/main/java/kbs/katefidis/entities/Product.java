@@ -1,12 +1,10 @@
-package kbs.katefidis.models;
+package kbs.katefidis.entities;
 
 import javax.persistence.*;
-import java.util.Optional;
 
 @Entity
 @Table(name = "PRODUCTS")
 public class Product {
-
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,9 +21,6 @@ public class Product {
 
     @Column(name = "QUANTITY", nullable = false)
     private Integer quantity;
-
-    public Product() {
-    }
 
     public Long getId() {
         return id;
