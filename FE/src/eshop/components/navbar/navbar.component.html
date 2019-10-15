@@ -13,21 +13,38 @@
           </div>
         </li>
       </ul>
-      <span class="navbar-text actions list-unstyled">
-        <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item" role="presentation"></li>
+      <ng-container *ngIf="getloggedInUser()">
+        <span class="navbar-text actions list-unstyled">
+          <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item" role="presentation"></li>
 
-
-<!--            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fa fa-user-circle fa-lg" aria-hidden="true"></i>-->
-<!--&lt;!&ndash;              {{getUser().email}}&ndash;&gt;-->
-<!--              <span class="caret"></span></a>-->
-<!--              <div class="dropdown-menu" role="menu">-->
-<!--                <a class="dropdown-item" role="presentation" href="#"><i class="fa fa-truck" aria-hidden="true"></i> Οι παραγγελίες μου</a>-->
-<!--              </div>-->
-<!--            </li>-->
-
-        </ul>
+              <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fa fa-user-circle fa-lg" aria-hidden="true"></i>
+                {{getloggedInUser().email}}
+                <span class="caret"></span></a>
+                <div class="dropdown-menu" role="menu">
+                  <button class="dropdown-item" role="presentation" ><i class="fa fa-truck" aria-hidden="true"></i> Οι παραγγελίες μου</button>
+                  <button class="dropdown-item" role="presentation" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Αποσύνδεση</button>
+                </div>
+              </li>
+          </ul>
       </span>
+      </ng-container>
+      <ng-container *ngIf="!getloggedInUser()">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">	<a class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" href="#">
+            Σύνδεση
+          </a>
+
+            <div class="dropdown-menu dropdown-menu-right" id="formLogin">
+              <div class="form-group">
+                <label class="">EMail</label>
+                <input class="form-control" type="email" [(ngModel)]="userEmail" name="{{userEmail}}" />
+              </div>
+              <button type="submit" id="btnLogin" class="btn btn-success btn-sm" (click)="login(userEmail)">Σύνδεση</button>
+            </div>
+          </li>
+        </ul>
+      </ng-container>
 
 
 

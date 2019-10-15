@@ -21,17 +21,27 @@ export class UserService {
   ngOnInit() {
   }
 
-  get loggedInUser(): User {
-    return this._loggedInUser;
+  public getloggedInUser(): User {
+    return JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  set loggedInUser(value: User) {
-    this._loggedInUser = value;
+  public setloggedInUser(user: User) {
+    localStorage.setItem('currentUser', JSON.stringify(user));
+  }
+
+  public clearloggedInUser() {
+    localStorage.setItem('currentUser', null);
   }
 
   public getUsers(): Observable<User[]> {
     return this.http.get(API_ENDPOINT + "/getUsers")
       .pipe(map((response: any) => response)
+      );
+  }
+
+  public getUser(userEmail: String): Observable<User> {
+    return this.http.get<User>(API_ENDPOINT + "/getUser/" + userEmail)
+      .pipe(map((response: any) => response as User)
       );
   }
 

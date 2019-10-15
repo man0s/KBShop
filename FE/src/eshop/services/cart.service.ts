@@ -63,6 +63,7 @@ export class CartService {
   }
 
   public empty(): void {
+    localStorage.removeItem('cart');
     const newCart = new Cart();
     this.save(newCart);
     this.dispatch(newCart);

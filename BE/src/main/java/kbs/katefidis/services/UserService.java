@@ -14,8 +14,15 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+
+    @Transactional
     public List<User> findAll() {
         return userRepository.findAll();
+    }
+
+    @Transactional
+    public User getUser(String userEmail) {
+        return userRepository.getUserByEmail(userEmail);
     }
 
     @Transactional

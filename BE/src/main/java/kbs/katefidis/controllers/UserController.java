@@ -26,6 +26,11 @@ public class UserController {
         return userService.findAll();
     }
 
+    @GetMapping(path = "/getUser/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public User getUserRequest(@PathVariable("email") String userEmail) {
+        return userService.getUser(userEmail);
+    }
+
     @DeleteMapping(path = "/deleteUser/{id}")
     public void deleteUserRequest(@PathVariable("id") Long userID) {
         userService.deleteUser(userID);
