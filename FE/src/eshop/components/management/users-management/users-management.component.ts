@@ -21,7 +21,7 @@ export class UsersManagementComponent implements OnInit {
   createUser(user: User) {
     this.userService.createUser(user);
     this.users.subscribe(
-      products => this.users = this.userService.getUsers()
+      () => this.users = this.userService.getUsers()
     );
     this.newUser = {};
   }
@@ -29,14 +29,14 @@ export class UsersManagementComponent implements OnInit {
   deleteUser(userID: number) {
     this.userService.deleteUser(userID);
     this.users.subscribe(
-      products => this.users = this.userService.getUsers()
+      () => this.users = this.userService.getUsers()
     );
   }
 
   editUser(user: User) {
     this.userService.editUser(user);
     this.users.subscribe(
-      products => this.users = this.userService.getUsers()
+      () => this.users = this.userService.getUsers()
     );
   }
 }
