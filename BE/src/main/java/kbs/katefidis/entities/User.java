@@ -19,16 +19,8 @@ public class User {
     @Column(name = "EMAIL", nullable = false)
     private String email;
 
-// TODO orders per user
-//    @Column(name = "ORDERS", nullable = false)
-//    private Order[] orders;
-
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -54,6 +46,5 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
 }
