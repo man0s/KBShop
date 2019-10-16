@@ -5,6 +5,7 @@ import {CheckoutComponent} from './components/products/checkout/checkout.compone
 import {ProductsComponent} from './components/products/products.component';
 import {ProductsManagementComponent} from './components/management/products-management/products-management.component';
 import {UsersManagementComponent} from './components/management/users-management/users-management.component';
+import {OrderHistoryComponent} from './components/navbar/order-history/order-history.component';
 
 @NgModule({
   exports: [RouterModule],
@@ -25,6 +26,10 @@ import {UsersManagementComponent} from './components/management/users-management
       {
         component: UsersManagementComponent,
         path: 'management/users'
+      },
+      {
+        component: OrderHistoryComponent,
+        path: 'user/orders'
       }
     ])
   ]

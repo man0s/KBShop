@@ -22,7 +22,7 @@
                 {{getloggedInUser().email}}
                 <span class="caret"></span></a>
                 <div class="dropdown-menu" role="menu">
-                  <button class="dropdown-item" role="presentation" ><i class="fa fa-truck" aria-hidden="true"></i> Οι παραγγελίες μου</button>
+                  <button class="dropdown-item" role="presentation" [routerLink]="['/user/orders']"><i class="fa fa-truck" aria-hidden="true"></i> Οι παραγγελίες μου</button>
                   <button class="dropdown-item" role="presentation" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Αποσύνδεση</button>
                 </div>
               </li>

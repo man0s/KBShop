@@ -16,6 +16,8 @@ import { CheckoutComponent } from './components/products/checkout/checkout.compo
 import { ProductsManagementComponent } from './components/management/products-management/products-management.component';
 import {FormsModule} from '@angular/forms';
 import { UsersManagementComponent } from './components/management/users-management/users-management.component';
+import { OrderComponent } from './components/products/order/order.component';
+import { OrderHistoryComponent } from './components/navbar/order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { UsersManagementComponent } from './components/management/users-manageme
     CartComponent,
     CheckoutComponent,
     ProductsManagementComponent,
-    UsersManagementComponent
+    UsersManagementComponent,
+    OrderComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,
