@@ -70,13 +70,14 @@ export class CartService {
   }
 
   public calculateCart(cart: Cart): void {
-    cart.itemsTotal = cart.items
+    cart.priceTotal = cart.items
       .map((item) => item.qty * this.products.find((p) => p.id === item.id).price)
       .reduce((previous, current) => previous + current, 0);
-    cart.priceTotal = cart.itemsTotal;
+
+    cart.itemsTotal = cart.items.map((x) => x.qty).reduce((p, n) => p + n, 0);
   }
 
-  private retrieve(): Cart {
+  public retrieve(): Cart {
     const cart = new Cart();
     const storedCart = this.storage.getItem('cart');
     if (storedCart) {

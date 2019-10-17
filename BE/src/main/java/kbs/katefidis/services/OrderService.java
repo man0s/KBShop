@@ -1,6 +1,7 @@
 package kbs.katefidis.services;
 
 import kbs.katefidis.entities.Order;
+import kbs.katefidis.entities.Product;
 import kbs.katefidis.repositories.OrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,12 @@ public class OrderService {
     @Transactional
     public List<Order> findAll() {
         return orderRepository.findAll();
+    }
+
+    @Transactional
+    public Order createOrder(Order order) {
+
+        return orderRepository.save(order);
     }
 
 }

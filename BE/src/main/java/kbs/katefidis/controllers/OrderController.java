@@ -22,4 +22,9 @@ public class OrderController {
     public List<Order> getOrdersRequest() {
         return orderService.findAll();
     }
+
+    @PostMapping(path = "/createOrder", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Order createOrderRequest(@RequestBody Order order){
+        return orderService.createOrder(order);
+    }
 }

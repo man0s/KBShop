@@ -34,36 +34,38 @@
     <div class="col-md-8">
       <br>
       <h4 style="margin-bottom: 18px">Στοιχεία Παράδοσης</h4>
-      <form action="/checkout" method="POST" style="border: 1px solid rgba(0,0,0,.125)">
 
-        <div class="row" style="padding: 15px">
-          <div class="col-md-6">
-            <label class="form_margin" for="firstName">Όνομα</label>
-            <input type="text" class="form-control" name="firstName" placeholder="Όνομα" value="" required>
-          </div>
-          <div class="col-md-6">
-            <label class="form_margin" for="lastName">Επώνυμο</label>
-            <input type="text" class="form-control" name="lastName" placeholder="Επώνυμο" value="" required>
-          </div>
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+        <div>
+          <label for="name">
+            Όνομα
+          </label>
+          <input id="name" type="text" formControlName="name">
         </div>
-        <div class="row" style="padding: 15px">
-          <div class="col-md-6">
-            <label class="form_margin" for="firstName">Τηλέφωνο</label>
-            <input type="tel" class="form-control" name="firstName" placeholder="Τηλέφωνο" pattern="[0-9]{10}" value="" required>
-          </div>
-          <div class="col-md-6">
-            <label class="form_margin" for="lastName">Email</label>
-            <input type="email" class="form-control" name="lastName" placeholder="Email" value="" required>
-          </div>
+        <div>
+          <label for="surname">
+            Επώνυμο
+          </label>
+          <input id="surname" type="text" formControlName="surname">
         </div>
-        <br>
-        <div class="col-md-12 form-group">
-          <label class="form_margin" for="address">Διεύθυνση</label>
-          <input type="text" class="form-control" name="address" id="location_input" maxlength="100" placeholder="Οδός & Αριθμός" required>
+        <div>
+          <label for="email">
+            EMail
+          </label>
+          <input id="email" type="email" formControlName="email">
         </div>
-        <br>
-        <button class="btn btn-success btn-lg btn-block btn-add" style="padding: 15px" type="submit">Ολοκλήρωση Παραγγελίας</button>
+        <div>
+          <label for="address">
+            Διεύθυνση
+          </label>
+          <input id="address" type="text" formControlName="address">
+        </div>
+
+        <button class="button" type="submit">Ολοκλήρωση Παραγγελίας</button>
+
       </form>
+
     </div>
 
 

@@ -24,6 +24,7 @@ export class UsersManagementComponent implements OnInit {
       () => this.users = this.userService.getUsers()
     );
     this.newUser = {};
+    this.users = this.userService.getUsers();
   }
 
   deleteUser(userID: number) {

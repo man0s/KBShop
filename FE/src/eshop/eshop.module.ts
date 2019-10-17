@@ -14,7 +14,7 @@ import {LocalStorageService, StorageService} from './services/storage.service';
 import {CartService} from './services/cart.service';
 import { CheckoutComponent } from './components/products/checkout/checkout.component';
 import { ProductsManagementComponent } from './components/management/products-management/products-management.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UsersManagementComponent } from './components/management/users-management/users-management.component';
 import { OrderComponent } from './components/products/order/order.component';
 import { OrderHistoryComponent } from './components/navbar/order-history/order-history.component';
@@ -37,7 +37,8 @@ import { OrderHistoryComponent } from './components/navbar/order-history/order-h
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     LocalStorageService,
