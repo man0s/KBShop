@@ -13,12 +13,13 @@ public class OrderProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ORDER_ID")
+    @ManyToOne
+    @JoinColumn(name="ORDER_ID")
+    @JsonBackReference
     private Order order;
 
     @Column(name = "QUANTITY")

@@ -35,35 +35,44 @@
       <br>
       <h4 style="margin-bottom: 18px">Στοιχεία Παράδοσης</h4>
 
-      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
-
-        <div>
-          <label for="name">
-            Όνομα
-          </label>
-          <input id="name" type="text" formControlName="name">
-        </div>
-        <div>
-          <label for="surname">
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" style="border: 1px solid rgba(0,0,0,.125)">
+        <div class="row" style="padding: 15px">
+          <div class="col-md-6">
+            <label class="form_margin" for="name">
+              Όνομα
+            </label>
+            <input class="form-control" id="name" type="text" formControlName="name" placeholder="Όνομα" required>
+          </div>
+        <div class="col-md-6">
+          <label class="form_margin" for="surname">
             Επώνυμο
           </label>
-          <input id="surname" type="text" formControlName="surname">
+          <input class="form-control" id="surname" type="text" formControlName="surname" placeholder="Επώνυμο" required>
         </div>
-        <div>
-          <label for="email">
-            EMail
-          </label>
-          <input id="email" type="email" formControlName="email">
         </div>
-        <div>
-          <label for="address">
+        <div class="row" style="padding: 15px">
+          <div class="col-md-6">
+            <label class="form_margin" for="email">
+              EMail
+            </label>
+            <input class="form-control" id="email" type="text" formControlName="email" placeholder="EMail" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form_margin" for="phone">
+              Τηλέφωνο
+            </label>
+            <input class="form-control" id="phone" type="text" formControlName="phone" placeholder="Τηλέφωνο" required>
+          </div>
+        </div>
+        <br>
+        <div class="col-md-12 form-group">
+          <label class="form_margin" for="address">
             Διεύθυνση
           </label>
-          <input id="address" type="text" formControlName="address">
+          <input class="form-control" id="address" type="text" formControlName="address" placeholder="Οδός & Αριθμός" required>
         </div>
-
-        <button class="button" type="submit">Ολοκλήρωση Παραγγελίας</button>
-
+        <br>
+        <button class="btn btn-success btn-lg btn-block btn-add" style="padding: 15px" type="submit">Ολοκλήρωση Παραγγελίας</button>
       </form>
 
     </div>

@@ -9,7 +9,7 @@ import {LocalStorageService} from '../../../services/storage.service';
 import { Order } from 'src/eshop/models/order.model';
 import {OrderService} from '../../../services/order.service';
 import {UserService} from '../../../services/user.service';
-import { FormBuilder } from '@angular/forms';
+import {Form, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-checkout',
@@ -24,7 +24,7 @@ export class CheckoutComponent implements OnInit {
 
   private cartSubscription: Subscription;
 
-  public constructor(private cartService: CartService, private userService: UserService,  private formBuilder: FormBuilder) {
+  public constructor(private cartService: CartService, private userService: UserService,  private formBuilder: FormBuilder, private orderService: OrderService) {
     if(this.userService.getloggedInUser())
     {
       this.checkoutForm = this.formBuilder.group({
@@ -32,6 +32,7 @@ export class CheckoutComponent implements OnInit {
         surname: this.userService.getloggedInUser().surname,
         address: '',
         email: this.userService.getloggedInUser().email,
+        phone: '',
         cart: {}
       });
     } else {
@@ -40,6 +41,7 @@ export class CheckoutComponent implements OnInit {
         surname: '',
         address: '',
         email: '',
+        phone: '',
         cart: {}
       });
     }
@@ -48,8 +50,8 @@ export class CheckoutComponent implements OnInit {
   onSubmit(customerData) {
     customerData.cart = this.cartService.retrieve();
 
-
-    console.warn('Your order has been submitted', customerData);
+    console.log('Your order has been submitted', customerData);
+    this.createOrder(customerData);
 
     this.emptyCart();
     this.checkoutForm.reset();
@@ -76,6 +78,7 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
-  public createOrder(order: Order) {
+  public createOrder(formData: Form) {
+    this.orderService.createOrder(formData)
   }
 }

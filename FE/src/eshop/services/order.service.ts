@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Order } from '../models/order.model';
+import { Form } from '@angular/forms';
 
 const API_ENDPOINT = 'http://localhost:8080/api';
 
@@ -18,16 +19,22 @@ export class OrderService {
   }
 
 
-  public getOrders(): Observable<Order[]> {
+  public getAllOrders(): Observable<Order[]> {
     return this.http.get(API_ENDPOINT + "/getOrders")
       .pipe(map((response: any) => response)
       );
   }
 
-  public createOrder(order: Order) {
-    this.http.post(API_ENDPOINT + "/createOrder", order)
+  public getOrders(userEmail: string): Observable<Order[]> {
+    return this.http.get(API_ENDPOINT + "/getOrders")
+      .pipe(map((response: any) => response)
+      );
+  }
+
+  public createOrder(form: Form) {
+    this.http.post(API_ENDPOINT + "/createOrder", form)
       .subscribe(
-        result => console.log("Order from user(" + order.user.email + ") has been created!"),
+        result => console.log("Order has been created!"),
         err => console.error(err)
       );
   }

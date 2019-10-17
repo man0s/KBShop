@@ -3,6 +3,7 @@ package kbs.katefidis.controllers;
 import kbs.katefidis.entities.Order;
 import kbs.katefidis.entities.Product;
 import kbs.katefidis.services.OrderService;
+import org.springframework.boot.context.properties.source.ConfigurationPropertyName;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,12 +20,23 @@ public class OrderController {
     }
 
     @GetMapping(path = "/getOrders", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Order> getOrdersRequest() {
+    public List<Order> getAllOrdersRequest() {
         return orderService.findAll();
     }
 
-    @PostMapping(path = "/createOrder", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Order createOrderRequest(@RequestBody Order order){
-        return orderService.createOrder(order);
+    @GetMapping(path = "/getOrders/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Order> getOrdersRequest(@PathVariable("email") String userEmail) {
+        return orderService.getOrders(userEmail);
     }
+
+//    @PostMapping(path = "/createOrder", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+//    public Order createOrderRequest(@RequestBody ConfigurationPropertyName.Form form){
+//        return orderService.createOrder(order);
+//    }
+
+    @PostMapping(path = "/createOrder")
+    public Order createOrderRequest(){
+        return orderService.createOrder();
+    }
+
 }
