@@ -16,7 +16,6 @@ export class ProductService {
   constructor(private http: HttpClient) {
   }
 
-
   public getProducts(): Observable<Product[]> {
     return this.http.get(API_ENDPOINT + "/getProducts")
       .pipe(map((response: any) => response)
