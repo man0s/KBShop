@@ -1,8 +1,10 @@
 import {User} from './user.model';
-import {Cart} from './cart.model';
+import {CartProduct} from './cart-product.model';
 
 export class Order {
-  timestamp: string;
+  id: number;
   user: User;
-  cart: Cart;
+  products: CartProduct[];
+  price_total: number;
+  products_total: number;
 }

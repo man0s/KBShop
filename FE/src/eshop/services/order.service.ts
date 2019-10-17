@@ -5,6 +5,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Order } from '../models/order.model';
 import { Form } from '@angular/forms';
+import {JsonFormatter} from 'tslint/lib/formatters';
 
 const API_ENDPOINT = 'http://localhost:8080/api';
 
@@ -26,7 +27,7 @@ export class OrderService {
   }
 
   public getOrders(userEmail: string): Observable<Order[]> {
-    return this.http.get(API_ENDPOINT + "/getOrders")
+    return this.http.get(API_ENDPOINT + "/getOrders/" + userEmail)
       .pipe(map((response: any) => response)
       );
   }
