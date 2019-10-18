@@ -41,6 +41,9 @@ public class Order implements Serializable {
     @Column(name = "PRICE_TOTAL")
     private Double price_total;
 
+    @Column(name = "POSTED")
+    private boolean posted;
+
     public Long getId() {
         return id;
     }
@@ -103,5 +106,13 @@ public class Order implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public boolean getPosted() {
+        return posted;
+    }
+
+    public void setPosted(boolean posted) {
+        this.posted = posted;
     }
 }

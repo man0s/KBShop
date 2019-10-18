@@ -10,11 +10,23 @@ import {OrderService} from '../../../services/order.service';
 })
 export class OrdersManagementComponent implements OnInit {
   public orders: Observable<Order[]>;
+  isDisable = false;
 
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
     this.orders = this.orderService.getAllOrders();
+  }
+
+  editOrder(order: Order) {
+    this.orderService.editOrder(order);
+    this.orders.subscribe(
+      () => this.orders = this.orderService.getAllOrders()
+    );
+  }
+
+  onDisableUser(){
+    this.isDisable = true;
   }
 
 }

@@ -94,10 +94,21 @@ public class OrderService {
         order.setName("Emmanouil");
         order.setSurname("Katefidis");
         order.setAddress("Mpoukaouri 86");
+        order.setPosted(false);
 
         order = orderRepository.save(order);
 
         return order;
+    }
+
+    @Transactional
+    public Order editOrder(Order order) {
+        Order newOrder = orderRepository.getOne(order.getId());
+        newOrder.setName(order.getName());
+        newOrder.setSurname(order.getSurname());
+        newOrder.setAddress(order.getAddress());
+        newOrder.setPosted(order.getPosted());
+        return orderRepository.save(newOrder);
     }
 
 

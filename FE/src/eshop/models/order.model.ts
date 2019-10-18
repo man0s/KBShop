@@ -10,4 +10,5 @@ export class Order {
   address: string;
   price_total: number;
   products_total: number;
+  posted: boolean;
 }

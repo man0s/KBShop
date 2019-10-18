@@ -4,32 +4,41 @@
   <br>
   <div class="row">
     <div class="col-md-8" style="margin: auto; width: 60%;">
-      <ng-container *ngIf="orders.length; else noOrders">
+      <ng-container *ngIf="orders.length; else NoOrders">
         <ng-container *ngFor="let order of orders">
-        <div class="panel">
-          <div class="panel-body" style="padding: 10px;">
-            <ng-container *ngFor="let item of order.orderProducts ">
-                                      <li class="list-group-item history_items">
-                                          <span class="badge" style="background-color: #555; float: right;color: white;border-radius: 10px;">{{item.product.price  | currency: ' '}}</span>
-                                          <b>{{ item.quantity }}x</b> {{ item.product.title }}
-                                      </li>
-            </ng-container>
+          <div class="panel">
+            <div class="panel-body" style="padding: 10px;">
+              <ng-container *ngFor="let item of order.orderProducts ">
+                <li class="list-group-item history_items">
+                  <span class="badge" style="background-color: #555; float: right;color: white;border-radius: 10px;">{{item.product.price  | currency: ' '}}</span>
+                  <b>{{ item.quantity }}x</b> {{ item.product.title }}
+                </li>
+              </ng-container>
+              <ng-container *ngIf="order.posted; else notPosted">
+                <div style="float: right; margin: 10px">
+                  Κατάσταση: Απεστάλη
+                </div>
+              </ng-container>
+              <ng-template #notPosted>
+                <div style="float: right; margin: 10px">
+                  Κατάσταση: Σε επεξεργασία
+                </div>
+              </ng-template>
+              <br>
+            </div>
+            <div class="panel-footer history_total">
+              <b>Σύνολο: {{order.price_total | currency: ' '}} €</b>
+            </div>
           </div>
-          <div class="panel-footer history_total">
-            <b>Σύνολο: {{order.price_total | currency: ' '}} €</b>
-          </div>
-        </div>
         </ng-container>
       </ng-container>
-      <ng-template #noOrders>
-                    <div class="panel panel-default" style="padding: 10px;">
-                                            <img src="https://i.giphy.com/media/xUOxeRSgzGd7rbAqWs/giphy.webp"><br><br>
-                                            Ακόμη δεν παρήγγειλες; Τι περιμένεις!<br><br>
-                    <button routerLink="/" type="button" class="btn btn-add">Επιστροφή στον Κατάλογο</button>
-
-                     </div>
+      <ng-template #NoOrders>
+        <div class="panel panel-default" style="padding: 10px;">
+          <img src="https://i.giphy.com/media/xUOxeRSgzGd7rbAqWs/giphy.webp"><br><br>
+          Ακόμη δεν παρήγγειλες; Τι περιμένεις!<br><br>
+          <button routerLink="/" type="button" class="btn btn-add">Επιστροφή στον Κατάλογο</button>
+        </div>
       </ng-template>
-
     </div>
   </div>
 </div>

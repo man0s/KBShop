@@ -10,7 +10,7 @@ import {UserService} from '../../../services/user.service';
   styleUrls: ['./order-history.component.css']
 })
 export class OrderHistoryComponent implements OnInit {
-  public orders;
+  public orders = [];
 
   constructor(private orderService: OrderService, private userService: UserService) { }
 

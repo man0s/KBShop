@@ -10,6 +10,7 @@
         <th>Διέυθυνση</th>
         <th>Προϊόντα</th>
         <th>Σύνολο</th>
+        <th>Απεστάλη</th>
         <th>Ενέργειες</th>
       </tr>
       </thead>
@@ -43,9 +44,14 @@
 <!--          </label>-->
         {{order.price_total | currency: ' '}} €
         </td>
+        <td style="text-align: center">
+          <label>
+            <input type="checkbox" [(ngModel)]="order.posted" [checked]="order.posted == 'true'">
+          </label>
+        </td>
         <td>
-          <button style="margin: 2px 5px" class="btn btn-save"  type="button" (click)="editProduct(product)"><i class="fa fa-floppy-o" aria-hidden="true"></i> Αποθήκευση</button>
-          <button style="margin: 2px 5px" class="btn btn-remove"  type="button" (click)="deleteProduct(product.id)"><i class="fa fa-trash" aria-hidden="true"></i> Διαγραφή</button>
+          <button style="margin: 2px 5px" class="btn btn-post"  type="button" (click)="editOrder(order)"><i class="fa fa-floppy-o" aria-hidden="true"></i> Αποθήκευση</button>
+          <button style="margin: 2px 5px" class="btn btn-remove"  type="button" (click)="deleteOrder(order.id)"><i class="fa fa-trash" aria-hidden="true"></i> Διαγραφή</button>
         </td>
       </tr>
       </tbody>

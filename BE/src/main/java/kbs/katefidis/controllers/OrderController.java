@@ -34,6 +34,11 @@ public class OrderController {
 //        return orderService.createOrder(order);
 //    }
 
+    @PutMapping(path = "/editOrder", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Order editOrderRequest(@RequestBody Order order) {
+        return orderService.editOrder(order);
+    }
+
     @PostMapping(path = "/createOrder")
     public Order createOrderRequest(){
         return orderService.createOrder();

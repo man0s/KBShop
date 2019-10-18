@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { Order } from '../models/order.model';
 import { Form } from '@angular/forms';
 import {JsonFormatter} from 'tslint/lib/formatters';
+import {User} from '../models/user.model';
 
 const API_ENDPOINT = 'http://localhost:8080/api';
 
@@ -36,6 +37,14 @@ export class OrderService {
     this.http.post(API_ENDPOINT + "/createOrder", form)
       .subscribe(
         result => console.log("Order has been created!"),
+        err => console.error(err)
+      );
+  }
+
+  public editOrder(order: Order) {
+    this.http.put(API_ENDPOINT + "/editOrder", order)
+      .subscribe(
+        result => console.log("Order from user(" + order.user.email + ") has been edited!"),
         err => console.error(err)
       );
   }
