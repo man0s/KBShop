@@ -27,7 +27,7 @@ export class OrderService {
   }
 
   public getOrders(userEmail: string): Observable<Order[]> {
-    return this.http.get(API_ENDPOINT + "/getOrders/" + userEmail)
+    return this.http.get<Order[]>(API_ENDPOINT + "/getOrders/" + userEmail)
       .pipe(map((response: any) => response)
       );
   }

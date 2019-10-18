@@ -89,7 +89,7 @@ public class OrderService {
         orderProducts.add(orderProduct2);
 
         order.setOrderProducts(orderProducts);
-        order.setPrice_total(product.getPrice()+product2.getPrice());
+        order.setPrice_total( (product.getPrice() * orderProduct1.getQuantity() ) + (product2.getPrice() * orderProduct2.getQuantity()));
         order.setProducts_total(orderProducts.size());
 
         order = orderRepository.save(order);

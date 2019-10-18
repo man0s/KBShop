@@ -4,7 +4,7 @@ import {CartProduct} from './cart-product.model';
 export class Order {
   id: number;
   user: User;
-  products: CartProduct[];
+  orderProducts: CartProduct[];
   price_total: number;
   products_total: number;
 }

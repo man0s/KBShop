@@ -1,0 +1,50 @@
+.history_total {
+  color: white;
+  background-color: #39a95b;
+  border-color: #39a95b;
+}
+
+.history_items {
+  margin-bottom: 0px;
+}
+
+.history_items {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.panel-footer {
+  padding: 10px 15px;
+  border-top: 1px solid #ddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.btn-add {
+  border-radius: 2px;
+  background: #56c6c6;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+  border: 0;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 8px 20px;
+}
+
+.btn-add:hover, .btn-add:active {
+  color: #ffffff !important;
+  background-color: #3baeae !important;
+}
