@@ -33,10 +33,20 @@ export class OrderService {
       );
   }
 
-  public createOrder(form: Form) {
-    this.http.post(API_ENDPOINT + "/createOrder", form)
+  public createOrder(customerData) {
+    let order = new Order;
+    order.user = customerData.user;
+    order.name = customerData.name;
+    order.surname = customerData.surname;
+    order.address = customerData.address;
+    order.products_total = JSON.parse(customerData.cart.itemsTotal);
+    order.price_total = customerData.cart.priceTotal;
+    order.orderProducts = customerData.cart.items;
+    order.posted = customerData.posted;
+    // console.log(JSON.stringify(order));
+    this.http.post(API_ENDPOINT + "/createOrder", order)
       .subscribe(
-        result => console.log("Order has been created!"),
+        result => console.log("Order from user with email(" + customerData.email + ") has been created!"),
         err => console.error(err)
       );
   }

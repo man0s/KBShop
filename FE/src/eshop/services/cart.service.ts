@@ -42,8 +42,8 @@ export class CartService {
       cart.items.push(item);
     }
 
-    item.qty += quantity;
-    cart.items = cart.items.filter((cartItem) => cartItem.qty > 0);
+    item.quantity += quantity;
+    cart.items = cart.items.filter((cartItem) => cartItem.quantity > 0);
     // if (cart.items.length === 0) {
     //   cart.deliveryOptionId = undefined;
     // }
@@ -71,10 +71,10 @@ export class CartService {
 
   public calculateCart(cart: Cart): void {
     cart.priceTotal = cart.items
-      .map((item) => item.qty * item.product.price)
+      .map((item) => item.quantity * item.product.price)
       .reduce((previous, current) => previous + current, 0);
 
-    cart.itemsTotal = cart.items.map((x) => x.qty).reduce((p, n) => p + n, 0);
+    cart.itemsTotal = cart.items.map((x) => x.quantity).reduce((p, n) => p + n, 0);
   }
 
   public retrieve(): Cart {

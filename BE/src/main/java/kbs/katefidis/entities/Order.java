@@ -22,7 +22,7 @@ public class Order implements Serializable {
     @JoinColumn(name = "USER_ID", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER) // bidirectional association
+    @OneToMany(mappedBy = "order", cascade = CascadeType.MERGE, fetch = FetchType.EAGER) // bidirectional association
     @JsonManagedReference
     private List<OrderProduct> orderProducts;
 

@@ -17,11 +17,11 @@
                 <li class="list-group-item d-flex justify-content-between lh-condensed" style="border-radius: 0">
                     <div class="col-sm-10" >
                       <h5><b>{{item.product.title}}</b></h5>
-                      <div class="text-muted" style="padding-top: 8px">{{item.product.price * item.qty | currency: ' '}} €</div>
+                      <div class="text-muted" style="padding-top: 8px">{{item.product.price * item.quantity | currency: ' '}} €</div>
                     </div>
                     <div class="col-sm-2" style="padding-left: 0px">
                       <a (click)="removeProduct(item.product)" class="cartItemClose">&times;</a>
-                      <b>({{item.qty}})</b>
+                      <b>({{item.quantity}})</b>
                     </div>
                 </li>
         </ng-container>

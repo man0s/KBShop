@@ -28,6 +28,7 @@ export class CheckoutComponent implements OnInit {
     if(this.userService.getloggedInUser())
     {
       this.checkoutForm = this.formBuilder.group({
+        user: this.userService.getloggedInUser(),
         name: this.userService.getloggedInUser().name,
         surname: this.userService.getloggedInUser().surname,
         address: '',
@@ -37,6 +38,7 @@ export class CheckoutComponent implements OnInit {
       });
     } else {
       this.checkoutForm = this.formBuilder.group({
+        user: '',
         name: '',
         surname: '',
         address: '',
@@ -68,7 +70,7 @@ export class CheckoutComponent implements OnInit {
   public ngOnInit(): void {
     this.cart = this.cartService.getCart();
     this.cartSubscription = this.cart.subscribe((cart) => {
-      this.itemCount = cart.items.map((x) => x.qty).reduce((p, n) => p + n, 0);
+      this.itemCount = cart.items.map((x) => x.quantity).reduce((p, n) => p + n, 0);
     });
   }
 
@@ -78,7 +80,7 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
-  public createOrder(formData: Form) {
-    this.orderService.createOrder(formData)
+  public createOrder(customerData) {
+    this.orderService.createOrder(customerData)
   }
 }
