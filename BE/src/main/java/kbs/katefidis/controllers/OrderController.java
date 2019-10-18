@@ -1,6 +1,7 @@
 package kbs.katefidis.controllers;
 
 import kbs.katefidis.entities.Order;
+import kbs.katefidis.entities.OrderProduct;
 import kbs.katefidis.entities.Product;
 import kbs.katefidis.services.OrderService;
 import org.springframework.boot.context.properties.source.ConfigurationPropertyName;
@@ -48,5 +49,10 @@ public class OrderController {
     public Order createUserRequest(@RequestBody Order order) {
         return orderService.createOrder(order);
     }
+
+//    @PostMapping(path = "/createOrder", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+//    public List<OrderProduct> createUserRequest(@RequestBody Order order) {
+//        return orderService.createOrder(order);
+//    }
 
 }

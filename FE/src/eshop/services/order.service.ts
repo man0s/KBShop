@@ -43,7 +43,7 @@ export class OrderService {
     order.price_total = customerData.cart.priceTotal;
     order.orderProducts = customerData.cart.items;
     order.posted = customerData.posted;
-    // console.log(JSON.stringify(order));
+    console.log(JSON.stringify(order));
     this.http.post(API_ENDPOINT + "/createOrder", order)
       .subscribe(
         result => console.log("Order from user with email(" + customerData.email + ") has been created!"),

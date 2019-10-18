@@ -104,19 +104,22 @@ public class OrderService {
     @Transactional
     public Order createOrder(Order order) {
         Order newOrder = new Order();
+//        List<OrderProduct> orderProducts = new ArrayList<OrderProduct>();
 
         newOrder.setUser(order.getUser());
         newOrder.setOrderProducts(order.getOrderProducts());
         newOrder.setPrice_total(order.getPrice_total());
+
+
+        newOrder.setOrderProducts(orderProductRepository.saveAll(order.getOrderProducts()));
+
         newOrder.setProducts_total(order.getProducts_total());
         newOrder.setName(order.getName());
         newOrder.setSurname(order.getSurname());
         newOrder.setAddress(order.getAddress());
         newOrder.setPosted(order.getPosted());
 
-        newOrder = orderRepository.save(newOrder);
-
-        return newOrder;
+        return orderRepository.save(newOrder);
     }
 
     @Transactional

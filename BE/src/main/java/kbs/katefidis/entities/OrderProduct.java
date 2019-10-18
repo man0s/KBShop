@@ -17,7 +17,7 @@ public class OrderProduct {
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="ORDER_ID")
     @JsonBackReference
     private Order order;
