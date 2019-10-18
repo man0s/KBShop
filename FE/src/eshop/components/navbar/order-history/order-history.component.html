@@ -4,7 +4,7 @@
   <br>
   <div class="row">
     <div class="col-md-8" style="margin: auto; width: 60%;">
-      <ng-container *ngIf="orders.length">
+      <ng-container *ngIf="orders.length; else noOrders">
         <ng-container *ngFor="let order of orders">
         <div class="panel">
           <div class="panel-body" style="padding: 10px;">
@@ -21,14 +21,14 @@
         </div>
         </ng-container>
       </ng-container>
-      <ng-container *ngIf="!orders.lenght">
+      <ng-template #noOrders>
                     <div class="panel panel-default" style="padding: 10px;">
                                             <img src="https://i.giphy.com/media/xUOxeRSgzGd7rbAqWs/giphy.webp"><br><br>
                                             Ακόμη δεν παρήγγειλες; Τι περιμένεις!<br><br>
                     <button routerLink="/" type="button" class="btn btn-add">Επιστροφή στον Κατάλογο</button>
 
                      </div>
-      </ng-container>
+      </ng-template>
 
     </div>
   </div>
