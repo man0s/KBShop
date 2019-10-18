@@ -6,6 +6,7 @@ import {ProductsComponent} from './components/products/products.component';
 import {ProductsManagementComponent} from './components/management/products-management/products-management.component';
 import {UsersManagementComponent} from './components/management/users-management/users-management.component';
 import {OrderHistoryComponent} from './components/navbar/order-history/order-history.component';
+import {OrdersManagementComponent} from './components/management/orders-management/orders-management.component';
 
 @NgModule({
   exports: [RouterModule],
@@ -26,6 +27,10 @@ import {OrderHistoryComponent} from './components/navbar/order-history/order-his
       {
         component: UsersManagementComponent,
         path: 'management/users'
+      },
+      {
+        component: OrdersManagementComponent,
+        path: 'management/orders'
       },
       {
         component: OrderHistoryComponent,

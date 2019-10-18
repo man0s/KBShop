@@ -18,6 +18,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UsersManagementComponent } from './components/management/users-management/users-management.component';
 import { OrderComponent } from './components/products/order/order.component';
 import { OrderHistoryComponent } from './components/navbar/order-history/order-history.component';
+import { OrdersManagementComponent } from './components/management/orders-management/orders-management.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { OrderHistoryComponent } from './components/navbar/order-history/order-h
     ProductsManagementComponent,
     UsersManagementComponent,
     OrderComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    OrdersManagementComponent
   ],
   imports: [
     BrowserModule,
