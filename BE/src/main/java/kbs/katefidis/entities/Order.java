@@ -26,11 +26,20 @@ public class Order implements Serializable {
     @JsonManagedReference
     private List<OrderProduct> orderProducts;
 
-    @Column(name = "PRICE_TOTAL")
-    private Double price_total;
+    @Column(name = "NAME")
+    private String name;
+
+    @Column(name = "SURNAME")
+    private String surname;
+
+    @Column(name = "ADDRESS")
+    private String address;
 
     @Column(name = "PRODUCTS_TOTAL")
     private Integer products_total;
+
+    @Column(name = "PRICE_TOTAL")
+    private Double price_total;
 
     public Long getId() {
         return id;
@@ -70,5 +79,29 @@ public class Order implements Serializable {
 
     public void setProducts_total(Integer products_total) {
         this.products_total = products_total;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

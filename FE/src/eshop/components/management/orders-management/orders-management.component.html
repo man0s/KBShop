@@ -1,1 +1,54 @@
-<p>orders-management works!</p>
+<div class="order-list">
+  <div class="container-fluid" style="padding: 0 8.333333%;">
+    <h1 style="text-align: center;">Διαχείριση Αποθέματος</h1>
+    <hr>
+    <table class="table table-striped table-bordered">
+      <thead>
+      <tr>
+        <th>Όνομα</th>
+        <th>Επώνυμο</th>
+        <th>Διέυθυνση</th>
+        <th>Προϊόντα</th>
+        <th>Σύνολο</th>
+        <th>Ενέργειες</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let order of orders  | async">
+        <td>
+          <label style="display: block;">
+            <input [(ngModel)]="order.name" class="form-control" type="text" name="{{order.name}}" />
+          </label>
+        </td>
+        <td>
+          <label>
+            <input [(ngModel)]="order.surname" class="form-control" type="text" name="{{order.surname}}" />
+          </label>
+        </td>
+        <td>
+          <label>
+            <input [(ngModel)]="order.address" class="form-control" type="text" name="{{order.address}}" />
+          </label>
+        </td>
+        <td>
+          <ng-container *ngFor="let item of order.orderProducts ">
+            <li class="list-group-item history_items">
+              <span class="badge" style="background-color: #555; float: right;color: white;border-radius: 10px;">{{item.product.price  | currency: ' '}}</span>
+              <b>{{ item.quantity }}x</b> {{ item.product.title }}
+            </li>
+          </ng-container>
+        <td>
+<!--          <label>-->
+<!--            <input [(ngModel)]="order.price_total" class="form-control" type="number" name="{{order.price_total}}" />-->
+<!--          </label>-->
+        {{order.price_total | currency: ' '}} €
+        </td>
+        <td>
+          <button style="margin: 2px 5px" class="btn btn-save"  type="button" (click)="editProduct(product)"><i class="fa fa-floppy-o" aria-hidden="true"></i> Αποθήκευση</button>
+          <button style="margin: 2px 5px" class="btn btn-remove"  type="button" (click)="deleteProduct(product.id)"><i class="fa fa-trash" aria-hidden="true"></i> Διαγραφή</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

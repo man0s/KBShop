@@ -91,6 +91,9 @@ public class OrderService {
         order.setOrderProducts(orderProducts);
         order.setPrice_total( (product.getPrice() * orderProduct1.getQuantity() ) + (product2.getPrice() * orderProduct2.getQuantity()));
         order.setProducts_total(orderProducts.size());
+        order.setName("Emmanouil");
+        order.setSurname("Katefidis");
+        order.setAddress("Mpoukaouri 86");
 
         order = orderRepository.save(order);
 
