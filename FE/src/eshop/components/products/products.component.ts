@@ -21,8 +21,8 @@ export class ProductsComponent implements OnInit {
   }
 
   setSort() {
-    if(this.sortBool) this.sortBool = false;
-    else this.sortBool = true;
+    if(this.sortBool) { this.sortBool = false; }
+    else { this.sortBool = true; }
   }
 
   setCount(count: number) {

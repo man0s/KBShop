@@ -51,7 +51,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit(customerData) {
-    customerData.cart = this.cartService.retrieve();
+    customerData.cart = this.cartService.retrieveCart();
     this.createOrder(customerData);
 
     this.emptyCart();
