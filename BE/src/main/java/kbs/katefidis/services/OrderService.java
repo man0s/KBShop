@@ -1,5 +1,6 @@
 package kbs.katefidis.services;
 
+import jdk.nashorn.internal.parser.JSONParser;
 import kbs.katefidis.entities.Order;
 import kbs.katefidis.entities.OrderProduct;
 import kbs.katefidis.entities.Product;
@@ -104,7 +105,8 @@ public class OrderService {
     @Transactional
     public Order createOrder(Order order) {
         Order newOrder = new Order();
-        List<OrderProduct> orderProducts = new ArrayList<OrderProduct>();
+        List<OrderProduct> orderProducts;
+        orderProducts = new ArrayList<OrderProduct>();
 
         newOrder.setUser(order.getUser());
 
@@ -130,9 +132,12 @@ public class OrderService {
         newOrder.setAddress(order.getAddress());
         newOrder.setPosted(order.getPosted());
 
-        newOrder.setOrderProducts(orderProductRepository.saveAll(order.getOrderProducts()));
+        System.out.println(order.getOrderProducts());
+        orderProducts = orderProductRepository.saveAll(order.getOrderProducts());
 
-        return newOrder;
+        newOrder.setOrderProducts(orderProducts);
+
+        return orderRepository.save(newOrder);
     }
 
     @Transactional

@@ -40,15 +40,16 @@ export class OrderService {
     order.surname = customerData.surname;
     order.address = customerData.address;
     order.products_total = customerData.cart.itemsTotal;
-    order.price_total = customerData.cart.priceTotal;
-    order.orderProducts = customerData.cart.items;
-    order.posted = false;
-    console.log(JSON.stringify(order));
-    this.http.post(API_ENDPOINT + "/createOrder", order)
-      .subscribe(
-        result => console.log("Order from user with email(" + customerData.email + ") has been created!"),
-        err => console.error(err)
-      );
+      order.price_total = customerData.cart.priceTotal;
+      customerData.cart.items.forEach(cartProduct => cartProduct.id = undefined);
+      order.orderProducts = customerData.cart.items;
+      order.posted = false;
+      console.log(JSON.stringify(order));
+      this.http.post(API_ENDPOINT + "/createOrder", order)
+        .subscribe(
+          result => console.log("Order from user with email(" + customerData.email + ") has been created!"),
+          err => console.error(err)
+        );
   }
 
   public editOrder(order: Order) {
