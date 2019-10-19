@@ -20,6 +20,7 @@ import { OrderComponent } from './components/products/order/order.component';
 import { OrderHistoryComponent } from './components/navbar/order-history/order-history.component';
 import { OrdersManagementComponent } from './components/management/orders-management/orders-management.component';
 import {SortPipe} from './pipes/sort.pipe';
+import {CountPipe} from './pipes/count.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {SortPipe} from './pipes/sort.pipe';
     OrderComponent,
     OrderHistoryComponent,
     OrdersManagementComponent,
-    SortPipe
+    SortPipe,
+    CountPipe
   ],
   imports: [
     BrowserModule,

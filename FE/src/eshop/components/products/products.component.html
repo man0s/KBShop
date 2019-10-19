@@ -1,11 +1,17 @@
 <div class="row" style="margin: auto">
   <div class="col-sm-1"></div>
   <div class="col-sm-8" style="margin-top: 52px">
-    <button (click)="setSort()" class="btn btn-sm btn-light">
+    <button (click)="setSort()" class="btn btn-sm btn-light" style="height: 35px;">
       <span class="fa fa-sort-alpha-asc"></span> Ταξινόμηση
     </button>
+    <select class="custom-select" style="width: auto; height: 35px;margin-left: 15px" (change)="setCount($event.target.value)">
+      <option selected value="50">Εμφάνησε (Προϊόντα)</option>
+      <option value="2">5</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+    </select>
     <div class="row product-list">
-        <ng-container *ngFor="let product of products | async | sort: sortBool">
+        <ng-container *ngFor="let product of products | async | sort: sortBool | slice: 0:countNum">
           <div app-product [product]="product" class="col-sm-6 col-md-4 product-item"></div>
         </ng-container>
     </div>
