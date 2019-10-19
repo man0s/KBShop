@@ -10,6 +10,7 @@ import { Order } from 'src/eshop/models/order.model';
 import {OrderService} from '../../../services/order.service';
 import {UserService} from '../../../services/user.service';
 import {Form, FormBuilder} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -24,7 +25,7 @@ export class CheckoutComponent implements OnInit {
 
   private cartSubscription: Subscription;
 
-  public constructor(private cartService: CartService, private userService: UserService,  private formBuilder: FormBuilder, private orderService: OrderService) {
+  public constructor(private cartService: CartService, private userService: UserService,  private formBuilder: FormBuilder, private orderService: OrderService, private router: Router) {
     if(this.userService.getloggedInUser())
     {
       this.checkoutForm = this.formBuilder.group({
@@ -51,12 +52,11 @@ export class CheckoutComponent implements OnInit {
 
   onSubmit(customerData) {
     customerData.cart = this.cartService.retrieve();
-
-    console.log('Your order has been submitted', customerData);
     this.createOrder(customerData);
 
     this.emptyCart();
     this.checkoutForm.reset();
+    this.router.navigate(['/']);
   }
 
   public emptyCart(): void {
@@ -81,6 +81,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   public createOrder(customerData) {
-    this.orderService.createOrder(customerData)
+    this.orderService.createOrder(customerData);
   }
 }

@@ -28,7 +28,7 @@ export class OrderService {
   }
 
   public getOrders(userEmail: string): Observable<Order[]> {
-    return this.http.get<Order[]>(API_ENDPOINT + "/getOrders/" + userEmail)
+    return this.http.get(API_ENDPOINT + "/getOrders/" + userEmail)
       .pipe(map((response: any) => response)
       );
   }
@@ -39,15 +39,15 @@ export class OrderService {
     order.name = customerData.name;
     order.surname = customerData.surname;
     order.address = customerData.address;
+    order.phone = customerData.phone;
     order.products_total = customerData.cart.itemsTotal;
       order.price_total = customerData.cart.priceTotal;
       customerData.cart.items.forEach(cartProduct => cartProduct.id = undefined);
       order.orderProducts = customerData.cart.items;
       order.posted = false;
-      console.log(JSON.stringify(order));
       this.http.post(API_ENDPOINT + "/createOrder", order)
         .subscribe(
-          result => console.log("Order from user with email(" + customerData.email + ") has been created!"),
+          result => console.log("Order from user(" + customerData.email + ") has been created!"),
           err => console.error(err)
         );
   }
@@ -59,22 +59,12 @@ export class OrderService {
         err => console.error(err)
       );
   }
-  //
-  // public editProduct(product: Product){
-  //   this.http.put(API_ENDPOINT + "/editProduct", product)
-  //     .subscribe(
-  //       result => console.log("Product with id(" + product.id + ") has been updated!"),
-  //       err => console.error(err)
-  //     );
-  // }
-  //
-  // public deleteProduct(productID: number){
-  //   this.http.delete(API_ENDPOINT + "/deleteProduct/" + productID)
-  //     .subscribe(
-  //       result => console.log("Product with id(" + productID + ") has been deleted!"),
-  //       err => console.error(err)
-  //     );
-  // }
 
-
+  public deleteOrder(orderID: number){
+    this.http.delete(API_ENDPOINT + "/deleteOrder/" + orderID)
+      .subscribe(
+        result => console.log("Order with id(" + orderID + ") has been deleted!"),
+        err => console.error(err)
+      );
+  }
 }

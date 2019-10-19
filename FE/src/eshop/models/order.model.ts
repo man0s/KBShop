@@ -8,6 +8,7 @@ export class Order {
   name: string;
   surname: string;
   address: string;
+  phone: string;
   price_total: number;
   products_total: number;
   posted: boolean;

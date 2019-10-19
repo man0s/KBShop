@@ -44,9 +44,6 @@ export class CartService {
 
     item.quantity += quantity;
     cart.items = cart.items.filter((cartItem) => cartItem.quantity > 0);
-    // if (cart.items.length === 0) {
-    //   cart.deliveryOptionId = undefined;
-    // }
 
     this.calculateCart(cart);
     this.save(cart);

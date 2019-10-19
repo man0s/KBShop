@@ -22,7 +22,7 @@ public class Order implements Serializable {
     @JoinColumn(name = "USER_ID", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER) // bidirectional association
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER, orphanRemoval = true) // bidirectional association
     @JsonManagedReference
     private List<OrderProduct> orderProducts;
 
@@ -34,6 +34,9 @@ public class Order implements Serializable {
 
     @Column(name = "ADDRESS")
     private String address;
+
+    @Column(name = "PHONE")
+    private String phone;
 
     @Column(name = "PRODUCTS_TOTAL")
     private Integer products_total;
@@ -114,5 +117,13 @@ public class Order implements Serializable {
 
     public void setPosted(boolean posted) {
         this.posted = posted;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

@@ -207,4 +207,20 @@
   padding: 10px 0;
 }
 
+.btn-add {
+  border-radius: 2px;
+  background: #10b65b;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+  border: 0;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 8px 20px;
+}
+
+.btn-add:hover, .btn-add:active {
+  color: #ffffff !important;
+  background-color: #10904b !important;
+}
+
 #formLogin{padding: 15px; min-width:300px;}

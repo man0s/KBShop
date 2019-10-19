@@ -40,73 +40,10 @@ public class OrderService {
         return orderRepository.getOrdersByUserEmail(userEmail);
     }
 
-//    @Transactional
-//    public Order createOrder(Order order) {
-//
-//        return orderRepository.save(order);
-//    }
-
-//    @Transactional
-//    public Order createOrder() {
-//        Order order = new Order();
-//        //user
-//        User user = new User();
-//        user.setEmail("manoskatef@gmail.com");
-//        user.setName("Emmanouil");
-//        user.setSurname("Katefidis");
-//        user = userRepository.save(user);
-//
-//        order.setUser(user);
-//        //product
-//        Product product = new Product();
-//        product.setImage("https://i.imgur.com/fKEuHYq.jpg");
-//        product.setPrice((double) 1429);
-//        product.setQuantity(10);
-//        product.setTitle("Apple iPhone 11 Pro 256GB");
-//        product = productRepository.save(product);
-//
-//        Product product2 = new Product();
-//        product2.setImage("https://i.imgur.com/eP63NSu.jpg");
-//        product2.setPrice((double) 1499);
-//        product2.setQuantity(6);
-//        product2.setTitle("dji Mavic 2 Pro");
-//        product2 = productRepository.save(product2);
-//
-//        //orderproduct1
-//        OrderProduct orderProduct1 = new OrderProduct();
-//        orderProduct1.setOrder(order);
-//        orderProduct1.setProduct(product);
-//        orderProduct1.setQuantity(2);
-//        orderProduct1 = orderProductRepository.save(orderProduct1);
-//        //orderproduct2
-//        OrderProduct orderProduct2 = new OrderProduct();
-//        orderProduct2.setOrder(order);
-//        orderProduct2.setProduct(product2);
-//        orderProduct2.setQuantity(1);
-//        orderProduct2 = orderProductRepository.save(orderProduct2);
-//        //list orderproduct
-//        List<OrderProduct> orderProducts = new ArrayList<OrderProduct>();
-//        orderProducts.add(orderProduct1);
-//        orderProducts.add(orderProduct2);
-//
-//        order.setOrderProducts(orderProducts);
-//        order.setPrice_total( (product.getPrice() * orderProduct1.getQuantity() ) + (product2.getPrice() * orderProduct2.getQuantity()));
-//        order.setProducts_total(orderProducts.size());
-//        order.setName("Emmanouil");
-//        order.setSurname("Katefidis");
-//        order.setAddress("Mpoukaouri 86");
-//        order.setPosted(false);
-//
-//        order = orderRepository.save(order);
-//
-//        return order;
-//    }
-
     @Transactional
     public Order createOrder(Order order) {
         Order newOrder = new Order();
-        List<OrderProduct> orderProducts;
-        orderProducts = new ArrayList<OrderProduct>();
+        List<OrderProduct> orderProducts = new ArrayList<OrderProduct>();
 
         newOrder.setUser(order.getUser());
 
@@ -117,10 +54,7 @@ public class OrderService {
             if( orderProduct.getQuantity() <= product.getQuantity())
             {
                 Product newProduct = productRepository.getOne(product.getId());
-                newProduct.setImage(product.getImage());
-                newProduct.setPrice(product.getPrice());
                 newProduct.setQuantity(product.getQuantity() - orderProduct.getQuantity());
-                newProduct.setTitle(product.getTitle());
                 productRepository.save(newProduct);
             } else return null;
         }
@@ -130,6 +64,7 @@ public class OrderService {
         newOrder.setName(order.getName());
         newOrder.setSurname(order.getSurname());
         newOrder.setAddress(order.getAddress());
+        newOrder.setPhone(order.getPhone());
         newOrder.setPosted(order.getPosted());
 
         newOrder.setOrderProducts(orderProductRepository.saveAll(orderProducts));
@@ -143,8 +78,27 @@ public class OrderService {
         newOrder.setName(order.getName());
         newOrder.setSurname(order.getSurname());
         newOrder.setAddress(order.getAddress());
+        newOrder.setPhone(order.getPhone());
         newOrder.setPosted(order.getPosted());
         return orderRepository.save(newOrder);
+    }
+
+    @Transactional
+    public void deleteOrder(Long orderID) {
+
+        Order order = orderRepository.getOne(orderID);
+
+        List<OrderProduct> orderProducts = new ArrayList<OrderProduct>();
+        orderProducts = order.getOrderProducts();
+        for(int i=0 ; i < orderProducts.size();i++) {
+            OrderProduct orderProduct = orderProducts.get(i);
+            Product product = orderProduct.getProduct();
+                Product oldProduct = productRepository.getOne(product.getId());
+                oldProduct.setQuantity(product.getQuantity() + orderProduct.getQuantity());
+                productRepository.save(oldProduct);
+        }
+
+        orderRepository.deleteById(orderID);
     }
 
 

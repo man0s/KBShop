@@ -30,29 +30,19 @@ public class OrderController {
         return orderService.getOrders(userEmail);
     }
 
-//    @PostMapping(path = "/createOrder", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-//    public Order createOrderRequest(@RequestBody ConfigurationPropertyName.Form form){
-//        return orderService.createOrder(order);
-//    }
+    @PostMapping(path = "/createOrder", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Order createUserRequest(@RequestBody Order order) {
+        return orderService.createOrder(order);
+    }
 
     @PutMapping(path = "/editOrder", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Order editOrderRequest(@RequestBody Order order) {
         return orderService.editOrder(order);
     }
 
-//    @PostMapping(path = "/createOrder")
-//    public Order createOrderRequest(){
-//        return orderService.createOrder();
-//    }
-
-    @PostMapping(path = "/createOrder", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Order createUserRequest(@RequestBody Order order) {
-        return orderService.createOrder(order);
+    @DeleteMapping(path = "/deleteOrder/{id}")
+    public void deleteUserRequest(@PathVariable("id") Long orderID) {
+        orderService.deleteOrder(orderID);
     }
-
-//    @PostMapping(path = "/createOrder", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-//    public List<OrderProduct> createUserRequest(@RequestBody Order order) {
-//        return orderService.createOrder(order);
-//    }
 
 }
