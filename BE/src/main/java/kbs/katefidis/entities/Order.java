@@ -1,7 +1,7 @@
 package kbs.katefidis.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -42,7 +42,7 @@ public class Order implements Serializable {
     private Double price_total;
 
     @Column(name = "POSTED")
-    private boolean posted;
+    private Boolean posted;
 
     public Long getId() {
         return id;
@@ -108,7 +108,7 @@ public class Order implements Serializable {
         this.address = address;
     }
 
-    public boolean getPosted() {
+    public Boolean getPosted() {
         return posted;
     }
 

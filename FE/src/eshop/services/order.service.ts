@@ -39,10 +39,10 @@ export class OrderService {
     order.name = customerData.name;
     order.surname = customerData.surname;
     order.address = customerData.address;
-    order.products_total = JSON.parse(customerData.cart.itemsTotal);
+    order.products_total = customerData.cart.itemsTotal;
     order.price_total = customerData.cart.priceTotal;
     order.orderProducts = customerData.cart.items;
-    order.posted = customerData.posted;
+    order.posted = false;
     console.log(JSON.stringify(order));
     this.http.post(API_ENDPOINT + "/createOrder", order)
       .subscribe(
