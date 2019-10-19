@@ -10,7 +10,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <ul class="list-group">
+      <ul class="list-group" style="margin-top: -3px;">
 
 
         <ng-container *ngFor="let item of (cart | async).items">
@@ -26,9 +26,20 @@
                 </li>
         </ng-container>
 
-        <li class="list-group-item d-flex justify-content-between">
+        <li class="list-group-item d-flex justify-content-between" style="flex-wrap: wrap;">
           <span style="margin: auto;">Σύνολο: <strong>{{(cart | async).priceTotal | currency: ' '}} €</strong></span>
-          <button [attr.disabled]="itemCount === 0 ? true : null" type="button" class="btn btn-add btn-responsive" routerLink="/checkout">Συνέχεια</button>
+
+          <ng-container *ngIf="getCurrentUser(); else notSignedIn">
+            <button style="margin: auto;" [attr.disabled]="itemCount === 0 ? true : null" type="button" class="btn btn-add btn-responsive" routerLink="/checkout">Συνέχεια</button>
+          </ng-container>
+
+          <ng-template #notSignedIn>
+            <button style="margin: auto;" [attr.disabled]="true" type="button" class="btn btn-add btn-responsive" routerLink="/checkout">Συνέχεια</button>
+            <div style="text-align: center; color: red;">
+              <hr>
+              <strong>Γιά να συνεχίσεις θα πρέπει πρώτα να συνδεθείς!</strong>
+            </div>
+          </ng-template>
         </li>
       </ul>
     </div>

@@ -5,6 +5,7 @@ import {ProductService} from '../../../services/product.service';
 import {CartService} from '../../../services/cart.service';
 import {ActivatedRoute} from '@angular/router';
 import { Cart } from 'src/eshop/models/cart.model';
+import {UserService} from '../../../services/user.service';
 
 @Component({
   selector: 'app-cart',
@@ -19,7 +20,17 @@ export class CartComponent implements OnInit, OnDestroy {
   private cartSubscription: Subscription;
 
   public constructor(private productService: ProductService,
-                     private cartService: CartService) {
+                     private cartService: CartService,
+                     private userService: UserService) {
+  }
+
+
+  public ngOnInit(): void {
+    this.products = this.productService.getProducts();
+    this.cart = this.cartService.getCart();
+    this.cartSubscription = this.cart.subscribe((cart) => {
+      this.itemCount = cart.items.map((x) => x.quantity).reduce((p, n) => p + n, 0);
+    });
   }
 
   public emptyCart(): void {
@@ -34,12 +45,8 @@ export class CartComponent implements OnInit, OnDestroy {
     return this.itemCount;
   }
 
-  public ngOnInit(): void {
-    this.products = this.productService.getProducts();
-    this.cart = this.cartService.getCart();
-    this.cartSubscription = this.cart.subscribe((cart) => {
-      this.itemCount = cart.items.map((x) => x.quantity).reduce((p, n) => p + n, 0);
-    });
+  public getCurrentUser() {
+    return this.userService.getloggedInUser();
   }
 
   public ngOnDestroy(): void {
