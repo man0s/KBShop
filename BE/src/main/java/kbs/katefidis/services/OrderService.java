@@ -132,12 +132,9 @@ public class OrderService {
         newOrder.setAddress(order.getAddress());
         newOrder.setPosted(order.getPosted());
 
-        System.out.println(order.getOrderProducts());
-        orderProducts = orderProductRepository.saveAll(order.getOrderProducts());
+        newOrder.setOrderProducts(orderProductRepository.saveAll(orderProducts));
 
-        newOrder.setOrderProducts(orderProducts);
-
-        return orderRepository.save(newOrder);
+        return newOrder;
     }
 
     @Transactional

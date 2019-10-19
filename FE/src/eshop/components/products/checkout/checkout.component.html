@@ -14,8 +14,8 @@
         <ng-container *ngFor="let item of (cart | async).items">
           <li class="list-group-item d-flex justify-content-between lh-condensed" style="border-radius: 0">
             <div class="col-sm-11">
-              <h5><b>{{item.product.title}} ({{item.qty}})</b></h5>
-              <span class="text-muted">{{item.product.price * item.qty | currency: ' '}} €</span>
+              <h5><b>{{item.product.title}} ({{item.quantity}})</b></h5>
+              <span class="text-muted">{{item.product.price * item.quantity | currency: ' '}} €</span>
             </div>
             <div class="col-sm-1" style="padding-left: 0px">
               <a (click)="removeProduct(item.product)" class="cartItemClose">&times;</a>
