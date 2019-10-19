@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe, PipeTransform } from '@angular/core';
 
 import { EShopComponent } from './eshop.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -19,6 +19,7 @@ import { UsersManagementComponent } from './components/management/users-manageme
 import { OrderComponent } from './components/products/order/order.component';
 import { OrderHistoryComponent } from './components/navbar/order-history/order-history.component';
 import { OrdersManagementComponent } from './components/management/orders-management/orders-management.component';
+import {SortPipe} from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { OrdersManagementComponent } from './components/management/orders-manage
     UsersManagementComponent,
     OrderComponent,
     OrderHistoryComponent,
-    OrdersManagementComponent
+    OrdersManagementComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,

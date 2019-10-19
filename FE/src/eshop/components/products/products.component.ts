@@ -11,11 +11,17 @@ import {CartService} from '../../services/cart.service';
 })
 export class ProductsComponent implements OnInit {
   public products: Observable<Product[]>;
+  public sortBool = false;
 
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
     this.products = this.productService.getProducts();
+  }
+
+  setSort() {
+    if(this.sortBool) this.sortBool = false;
+    else this.sortBool = true;
   }
 
 }

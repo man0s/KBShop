@@ -1,8 +1,11 @@
 <div class="row" style="margin: auto">
   <div class="col-sm-1"></div>
-  <div class="col-sm-8">
+  <div class="col-sm-8" style="margin-top: 52px">
+    <button (click)="setSort()" class="btn btn-sm btn-light">
+      <span class="fa fa-sort-alpha-asc"></span> Ταξινόμηση
+    </button>
     <div class="row product-list">
-        <ng-container *ngFor="let product of products | async">
+        <ng-container *ngFor="let product of products | async | sort: sortBool">
           <div app-product [product]="product" class="col-sm-6 col-md-4 product-item"></div>
         </ng-container>
     </div>
