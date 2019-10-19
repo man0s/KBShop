@@ -9,6 +9,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    @Query("SELECT product.quantity FROM Product product WHERE product.id = :productID")
-    Integer getProductQuantity(@Param("productID") Long productID);
 }

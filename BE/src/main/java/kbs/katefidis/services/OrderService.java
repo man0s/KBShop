@@ -1,16 +1,13 @@
 package kbs.katefidis.services;
 
-import jdk.nashorn.internal.parser.JSONParser;
 import kbs.katefidis.entities.Order;
 import kbs.katefidis.entities.OrderProduct;
 import kbs.katefidis.entities.Product;
-import kbs.katefidis.entities.User;
 import kbs.katefidis.repositories.OrderProductRepository;
 import kbs.katefidis.repositories.OrderRepository;
 import kbs.katefidis.repositories.ProductRepository;
 import kbs.katefidis.repositories.UserRepository;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,13 +15,11 @@ import java.util.List;
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
-    private final UserRepository userRepository;
     private final ProductRepository productRepository;
     private final OrderProductRepository orderProductRepository;
 
     public OrderService(OrderRepository orderRepository, UserRepository userRepository, ProductRepository productRepository, OrderProductRepository orderProductRepository) {
         this.orderRepository = orderRepository;
-        this.userRepository = userRepository;
         this.productRepository = productRepository;
         this.orderProductRepository = orderProductRepository;
     }
@@ -48,12 +43,15 @@ public class OrderService {
         newOrder.setUser(order.getUser());
 
         orderProducts = order.getOrderProducts();
+        //go through all products of the order
         for(int i=0 ; i < orderProducts.size();i++) {
             OrderProduct orderProduct = orderProducts.get(i);
             Product product = orderProduct.getProduct();
+            //check if the product is on the inventory
             if( orderProduct.getQuantity() <= product.getQuantity())
             {
                 Product newProduct = productRepository.getOne(product.getId());
+                //remove product quantity from inventory
                 newProduct.setQuantity(product.getQuantity() - orderProduct.getQuantity());
                 productRepository.save(newProduct);
             } else return null;
@@ -90,12 +88,15 @@ public class OrderService {
 
         List<OrderProduct> orderProducts = new ArrayList<OrderProduct>();
         orderProducts = order.getOrderProducts();
+
+        //go through all products of the order
         for(int i=0 ; i < orderProducts.size();i++) {
             OrderProduct orderProduct = orderProducts.get(i);
             Product product = orderProduct.getProduct();
-                Product oldProduct = productRepository.getOne(product.getId());
-                oldProduct.setQuantity(product.getQuantity() + orderProduct.getQuantity());
-                productRepository.save(oldProduct);
+            Product oldProduct = productRepository.getOne(product.getId());
+            //restore the old product inventory
+            oldProduct.setQuantity(product.getQuantity() + orderProduct.getQuantity());
+            productRepository.save(oldProduct);
         }
 
         orderRepository.deleteById(orderID);

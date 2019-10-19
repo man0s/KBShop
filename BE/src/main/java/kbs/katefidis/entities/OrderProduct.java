@@ -16,7 +16,7 @@ public class OrderProduct {
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
-    @ManyToOne( cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL) //bidirectional association
     @JoinColumn(name="ORDER_ID")
     @JsonBackReference
     private Order order;

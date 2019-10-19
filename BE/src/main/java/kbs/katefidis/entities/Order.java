@@ -1,14 +1,9 @@
 package kbs.katefidis.entities;
 
 import com.fasterxml.jackson.annotation.*;
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import javax.persistence.*;
-import javax.validation.Valid;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "ORDERS")

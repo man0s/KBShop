@@ -1,10 +1,7 @@
 package kbs.katefidis.controllers;
 
 import kbs.katefidis.entities.Order;
-import kbs.katefidis.entities.OrderProduct;
-import kbs.katefidis.entities.Product;
 import kbs.katefidis.services.OrderService;
-import org.springframework.boot.context.properties.source.ConfigurationPropertyName;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 

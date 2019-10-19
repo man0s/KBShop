@@ -16,14 +16,14 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @PostMapping(path = "/createProduct", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Product createProductRequest(@RequestBody Product product){
-        return productService.createProduct(product);
-    }
-
     @GetMapping(path = "/getProducts", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Product> getProductsRequest(){
         return productService.findAll();
+    }
+
+    @PostMapping(path = "/createProduct", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Product createProductRequest(@RequestBody Product product){
+        return productService.createProduct(product);
     }
 
     @DeleteMapping(path = "/deleteProduct/{id}")
@@ -35,6 +35,5 @@ public class ProductController {
     public Product editProductRequest(@RequestBody Product product){
        return productService.editProduct(product);
     }
-
 
 }

@@ -11,5 +11,4 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
     List<Order> getOrdersByUserEmail(@Param("userEmail") String userEmail);
-
 }
