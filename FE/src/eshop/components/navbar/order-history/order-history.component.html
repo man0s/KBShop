@@ -26,9 +26,16 @@
               </ng-template>
               <br>
             </div>
-            <div class="panel-footer history_total">
+            <ng-container *ngIf="order.posted; else total_notPosted">
+            <div class="panel-footer history_total_posted">
               <b>Σύνολο: {{order.price_total | currency: ' '}} €</b>
             </div>
+            </ng-container>
+            <ng-template #total_notPosted>
+              <div class="panel-footer history_total_notposted">
+                <b>Σύνολο: {{order.price_total | currency: ' '}} €</b>
+              </div>
+            </ng-template>
           </div>
         </ng-container>
       </ng-container>

@@ -1,7 +1,15 @@
-.history_total {
+.history_total_posted {
   color: white;
   background-color: #39a95b;
   border-color: #39a95b;
+  margin-top: 5px;
+}
+
+.history_total_notposted {
+  color: white;
+  background-color: darkorange;
+  border-color: darkorange;
+  margin-top: 5px;
 }
 
 .history_items {
