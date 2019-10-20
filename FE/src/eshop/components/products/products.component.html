@@ -11,7 +11,7 @@
       <option value="15">15</option>
     </select>
     <div class="row product-list">
-        <ng-container *ngFor="let product of products | async | sort: sortBool | slice: 0:countNum">
+        <ng-container *ngFor="let product of products | async | sort: sortBool:sortAsc | slice: 0:countNum">
           <div app-product [product]="product" class="col-sm-6 col-md-4 product-item"></div>
         </ng-container>
     </div>
