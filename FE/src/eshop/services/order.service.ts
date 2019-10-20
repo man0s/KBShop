@@ -41,8 +41,9 @@ export class OrderService {
     order.address = customerData.address;
     order.phone = customerData.phone;
     order.products_total = customerData.cart.itemsTotal;
-      order.price_total = customerData.cart.priceTotal;
-      customerData.cart.items.forEach(cartProduct => cartProduct.id = undefined);
+    order.price_total = customerData.cart.priceTotal;
+    //make each user's cart items id undefined
+    customerData.cart.items.forEach(cartProduct => cartProduct.id = undefined);
       order.orderProducts = customerData.cart.items;
       order.posted = false;
       this.http.post(API_ENDPOINT + "/createOrder", order)

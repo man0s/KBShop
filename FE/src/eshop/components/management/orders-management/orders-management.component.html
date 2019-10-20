@@ -41,10 +41,7 @@
               <b>{{ item.quantity }}x</b> {{ item.product.title }}
             </li>
           </ng-container>
-        <td>
-<!--          <label>-->
-<!--            <input [(ngModel)]="order.price_total" class="form-control" type="number" name="{{order.price_total}}" />-->
-<!--          </label>-->
+        <td style="width: 110px">
         {{order.price_total | currency: ' '}} €
         </td>
         <td style="text-align: center">

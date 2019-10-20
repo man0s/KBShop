@@ -1,5 +1,5 @@
-<div class="container-fluid" style="padding: 0 8.333333%; text-align: center">
-  <div><h1 style="margin-top: 50px;">Ιστορικό Παραγγελιών</h1></div>
+<div class="container-fluid" style="padding: 0 8.333333%;">
+  <div><h1 style="margin-top: 50px;text-align: center">Ιστορικό Παραγγελιών</h1></div>
   <hr style="margin-top: 5px; margin-bottom: 0px;">
   <br>
   <div class="row">
@@ -27,12 +27,12 @@
               <br>
             </div>
             <ng-container *ngIf="order.posted; else total_notPosted">
-            <div class="panel-footer history_total_posted">
+            <div class="panel-footer history_total_posted" style="text-align: center">
               <b>Σύνολο: {{order.price_total | currency: ' '}} €</b>
             </div>
             </ng-container>
             <ng-template #total_notPosted>
-              <div class="panel-footer history_total_notposted">
+              <div class="panel-footer history_total_notposted" style="text-align: center">
                 <b>Σύνολο: {{order.price_total | currency: ' '}} €</b>
               </div>
             </ng-template>
