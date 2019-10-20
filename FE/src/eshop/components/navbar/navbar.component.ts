@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../services/user.service';
 import { User } from 'src/eshop/models/user.model';
 import {Observable} from 'rxjs';
+import { Router } from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-navbar',
@@ -13,9 +15,9 @@ export class NavbarComponent implements OnInit {
   private registerEmail: string;
   private registerName: string;
   private registerSurname: string;
-  private newUser: any = {};
+  private newUser: any;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -35,12 +37,12 @@ export class NavbarComponent implements OnInit {
   }
 
   private register(registerName: string, registerSurname: string, registerEmail: string) {
+    this.newUser = new User;
     this.newUser.name = registerName;
     this.newUser.surname = registerSurname;
     this.newUser.email = registerEmail;
+    console.log("Registering user with email( " + registerEmail + ")");
     this.userService.createUser(this.newUser);
-    this.newUser = this.userService.getUser(this.newUser.email);
-    this.userService.setloggedInUser(this.newUser);
   }
 
   private logout() {

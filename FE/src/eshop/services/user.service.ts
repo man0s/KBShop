@@ -45,9 +45,11 @@ export class UserService {
   }
 
   public createUser(user: User) {
-    this.http.post(API_ENDPOINT + "/createUser", user)
+    return this.http.post(API_ENDPOINT + "/createUser", user)
       .subscribe(
-        result => console.log("User with email(" + user.email + ") has been created!"),
+        result => {
+          console.log("User with email(" + user.email + ") has been created!")
+        },
         err => console.error(err)
       );
   }

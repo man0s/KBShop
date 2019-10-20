@@ -207,7 +207,7 @@
   padding: 10px 0;
 }
 
-.btn-add {
+.btn-login {
   border-radius: 2px;
   background: #10b65b;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
@@ -218,15 +218,31 @@
   padding: 8px 20px;
 }
 
-.btn-add:hover, .btn-add:active {
+.btn-login:hover, .btn-login:active {
   color: #ffffff !important;
   background-color: #10904b !important;
+}
+
+.btn-register {
+  border-radius: 2px;
+  background: #ef8319;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+  border: 0;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 8px 20px;
+}
+
+.btn-register:hover, .btn-register:active {
+  color: #ffffff !important;
+  background-color: #ee7600 !important;
 }
 
 #formLogin{padding: 15px; min-width:300px;}
 
 #formRegister{padding: 15px; min-width:300px;}
 
-.dropdown-toggle::after {
+.dropdown-toggle-user::after {
   display:none;
 }
