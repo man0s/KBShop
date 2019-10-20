@@ -12,7 +12,7 @@ import {CartService} from '../../services/cart.service';
 export class ProductsComponent implements OnInit {
   public products: Observable<Product[]>;
   public sortBool = false;
-  public sortAsc = true;
+  public sortAsc: String;
   public countNum = 100;
 
   constructor(private productService: ProductService) { }
@@ -21,14 +21,8 @@ export class ProductsComponent implements OnInit {
     this.products = this.productService.getProducts();
   }
 
-  setSort() {
-    if(this.sortBool) {
-      if(this.sortAsc) this.sortAsc = false;
-      else this.sortBool = false;
-    }  else {
-      this.sortBool = true;
-      this.sortAsc = true;
-    }
+  setSort(order: String) {
+      this.sortAsc = order;
   }
 
   setCount(count: number) {

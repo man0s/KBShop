@@ -5,11 +5,10 @@ import { Product } from '../models/product.model';
   name: "sort"
 })
 export class SortPipe  implements PipeTransform {
-    transform(products: Product[], sortBool: Boolean, sortAsc: Boolean): Product[] {
+    transform(products: Product[], sortBool: Boolean, sortAsc: String): Product[] {
       products = products || [];  // set products array to an empty array if undefined
-      if(sortBool) {
-        if(sortAsc)
-        {
+      if(sortAsc == 'asc')
+      {
           products.sort((a: Product, b: Product) => {
             if (a.title.toLowerCase() < b.title.toLowerCase()) {
               return -1;
@@ -19,7 +18,7 @@ export class SortPipe  implements PipeTransform {
               return 0;
             }
           });
-        } else {
+      } else if(sortAsc == 'desc') {
           products.sort((a: Product, b: Product) => {
             if (a.title.toLowerCase() > b.title.toLowerCase()) {
               return -1;
@@ -29,7 +28,6 @@ export class SortPipe  implements PipeTransform {
               return 0;
             }
           });
-        }
       } else {
         products.sort((a: Product, b: Product) => {
           if (a.id < b.id) {
