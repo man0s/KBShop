@@ -17,11 +17,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping(path = "/createUser", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> createUserRequest(@RequestBody User user) {
-        return userService.createUser(user);
-    }
-
     @GetMapping(path = "/getUsers", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> getUsersRequest() {
         return userService.findAll();
@@ -30,6 +25,11 @@ public class UserController {
     @GetMapping(path = "/getUser/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
     public User getUserRequest(@PathVariable("email") String userEmail) {
         return userService.getUser(userEmail);
+    }
+
+    @PostMapping(path = "/createUser", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> createUserRequest(@RequestBody User user) {
+        return userService.createUser(user);
     }
 
     @DeleteMapping(path = "/deleteUser/{id}")

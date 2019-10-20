@@ -1,7 +1,6 @@
 package kbs.katefidis.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import javax.persistence.*;
 
 @Entity
@@ -16,9 +15,9 @@ public class OrderProduct {
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
-    @ManyToOne(cascade = CascadeType.ALL) //bidirectional association
+    @ManyToOne(cascade = CascadeType.ALL) //bidirectional association - ops will cascade from parent(Order) to the child(OrderProduct)
     @JoinColumn(name="ORDER_ID")
-    @JsonBackReference
+    @JsonBackReference //not serialized - when deserialize, value is set to instance that has the managed link(order)
     private Order order;
 
     @Column(name = "QUANTITY")

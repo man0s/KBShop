@@ -17,8 +17,8 @@ public class Order implements Serializable {
     @JoinColumn(name = "USER_ID", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER, orphanRemoval = true) // bidirectional association
-    @JsonManagedReference
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER, orphanRemoval = true) // bidirectional association - fetch immiately
+    @JsonManagedReference //serialized normally
     private List<OrderProduct> orderProducts;
 
     @Column(name = "NAME")
