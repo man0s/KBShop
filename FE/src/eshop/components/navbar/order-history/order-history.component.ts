@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs';
-import {Order} from '../../../models/order.model';
-import {OrderService} from '../../../services/order.service';
-import {UserService} from '../../../services/user.service';
+import { OrderService } from '../../../services/order.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-order-history',

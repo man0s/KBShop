@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {LocalStorageService} from './storage.service';
+import { LocalStorageService } from './storage.service';
 import { User } from '../models/user.model';
-import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 const API_ENDPOINT = "http://localhost:8080/api";
 

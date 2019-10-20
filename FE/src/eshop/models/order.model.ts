@@ -1,5 +1,5 @@
-import {User} from './user.model';
-import {CartProduct} from './cart-product.model';
+import { User } from './user.model';
+import { CartProduct } from './cart-product.model';
 
 export class Order {
   id: number;

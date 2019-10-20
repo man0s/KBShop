@@ -1,15 +1,15 @@
 import { Component, OnInit, OnDestroy  } from '@angular/core';
-import {Observable, Subscription} from 'rxjs';
-import {Cart} from '../../../models/cart.model';
-import {Product} from '../../../models/product.model';
-import {ProductService} from '../../../services/product.service';
-import {CartService} from '../../../services/cart.service';
-import {CartProduct} from '../../../models/cart-product.model';
-import {LocalStorageService} from '../../../services/storage.service';
+import { Observable, Subscription } from 'rxjs';
+import { Cart } from '../../../models/cart.model';
+import { Product } from '../../../models/product.model';
+import { ProductService } from '../../../services/product.service';
+import { CartService } from '../../../services/cart.service';
+import { CartProduct } from '../../../models/cart-product.model';
+import { LocalStorageService } from '../../../services/storage.service';
 import { Order } from 'src/eshop/models/order.model';
-import {OrderService} from '../../../services/order.service';
-import {UserService} from '../../../services/user.service';
-import {Form, FormBuilder} from '@angular/forms';
+import { OrderService } from '../../../services/order.service';
+import { UserService } from '../../../services/user.service';
+import { Form, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({

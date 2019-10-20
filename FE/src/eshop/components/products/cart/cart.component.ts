@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {Subscription, Observable} from 'rxjs';
-import {Product} from '../../../models/product.model';
-import {ProductService} from '../../../services/product.service';
-import {CartService} from '../../../services/cart.service';
-import {ActivatedRoute} from '@angular/router';
+import { Subscription, Observable } from 'rxjs';
+import { Product } from '../../../models/product.model';
+import { ProductService } from '../../../services/product.service';
+import { CartService } from '../../../services/cart.service';
+import { ActivatedRoute } from '@angular/router';
 import { Cart } from 'src/eshop/models/cart.model';
-import {UserService} from '../../../services/user.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-cart',

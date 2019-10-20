@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../../services/user.service';
+import { UserService } from '../../services/user.service';
 import { User } from 'src/eshop/models/user.model';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-navbar',

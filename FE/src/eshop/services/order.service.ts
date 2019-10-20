@@ -5,8 +5,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Order } from '../models/order.model';
 import { Form } from '@angular/forms';
-import {JsonFormatter} from 'tslint/lib/formatters';
-import {User} from '../models/user.model';
+import { JsonFormatter } from 'tslint/lib/formatters';
+import { User } from '../models/user.model';
 
 const API_ENDPOINT = 'http://localhost:8080/api';
 
