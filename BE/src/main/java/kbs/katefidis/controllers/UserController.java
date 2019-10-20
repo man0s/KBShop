@@ -3,6 +3,7 @@ package kbs.katefidis.controllers;
 import kbs.katefidis.entities.User;
 import kbs.katefidis.services.UserService;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class UserController {
     }
 
     @PostMapping(path = "/createUser", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public User createUserRequest(@RequestBody User user) {
+    public ResponseEntity<String> createUserRequest(@RequestBody User user) {
         return userService.createUser(user);
     }
 
@@ -32,12 +33,12 @@ public class UserController {
     }
 
     @DeleteMapping(path = "/deleteUser/{id}")
-    public void deleteUserRequest(@PathVariable("id") Long userID) {
-        userService.deleteUser(userID);
+    public ResponseEntity<String> deleteUserRequest(@PathVariable("id") Long userID) {
+        return userService.deleteUser(userID);
     }
 
     @PutMapping(path = "/editUser", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public User editUserRequest(@RequestBody User user) {
+    public ResponseEntity<String> editUserRequest(@RequestBody User user) {
         return userService.editUser(user);
     }
 }

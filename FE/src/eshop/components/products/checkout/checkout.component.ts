@@ -26,8 +26,6 @@ export class CheckoutComponent implements OnInit {
   private cartSubscription: Subscription;
 
   public constructor(private cartService: CartService, private userService: UserService,  private formBuilder: FormBuilder, private orderService: OrderService, private router: Router) {
-    if(this.userService.getloggedInUser())
-    {
       this.checkoutForm = this.formBuilder.group({
         user: this.userService.getloggedInUser(),
         name: this.userService.getloggedInUser().name,
@@ -37,17 +35,8 @@ export class CheckoutComponent implements OnInit {
         phone: '',
         cart: {}
       });
-    } else {
-      this.checkoutForm = this.formBuilder.group({
-        user: '',
-        name: '',
-        surname: '',
-        address: '',
-        email: '',
-        phone: '',
-        cart: {}
-      });
-    }
+      //disable the email input
+      this.checkoutForm.get('email').disable();
   }
 
   onSubmit(customerData) {

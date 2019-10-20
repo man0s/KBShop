@@ -3,8 +3,8 @@ package kbs.katefidis.controllers;
 import kbs.katefidis.entities.Order;
 import kbs.katefidis.services.OrderService;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @CrossOrigin
@@ -28,18 +28,19 @@ public class OrderController {
     }
 
     @PostMapping(path = "/createOrder", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Order createUserRequest(@RequestBody Order order) {
+    public ResponseEntity<String> createUserRequest(@RequestBody Order order) {
         return orderService.createOrder(order);
     }
 
+    @DeleteMapping(path = "/deleteOrder/{id}")
+    public ResponseEntity<String> deleteUserRequest(@PathVariable("id") Long orderID) {
+        return orderService.deleteOrder(orderID);
+    }
+
     @PutMapping(path = "/editOrder", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Order editOrderRequest(@RequestBody Order order) {
+    public ResponseEntity<String> editOrderRequest(@RequestBody Order order) {
         return orderService.editOrder(order);
     }
 
-    @DeleteMapping(path = "/deleteOrder/{id}")
-    public void deleteUserRequest(@PathVariable("id") Long orderID) {
-        orderService.deleteOrder(orderID);
-    }
 
 }

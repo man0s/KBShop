@@ -11,7 +11,6 @@ const API_ENDPOINT = "http://localhost:8080/api";
   providedIn: 'root'
 })
 export class UserService {
-  private _loggedInUser?: User;
   private users: Observable<User[]>;
 
 
