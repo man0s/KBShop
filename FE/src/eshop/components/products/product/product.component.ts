@@ -4,7 +4,6 @@ import {Observable, Observer} from 'rxjs';
 import { CartService } from 'src/eshop/services/cart.service';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: '[app-product]',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']

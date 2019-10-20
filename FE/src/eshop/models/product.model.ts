@@ -4,12 +4,5 @@ export class Product {
   image: string;
   price: number;
   quantity: number;
-
-  public updateFrom(product: Product): void {
-    this.id = product.id;
-    this.title = product.title;
-    this.image = product.image;
-    this.price = product.price;
-  }
 }
 

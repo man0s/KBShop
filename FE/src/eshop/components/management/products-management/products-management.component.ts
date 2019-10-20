@@ -42,10 +42,5 @@ export class ProductsManagementComponent implements OnInit {
       }
     );
   }
-  //
-  // getProductQty(productID: number) {
-  //   this.productService.getProductQty(productID);
-  // }
-
 
 }

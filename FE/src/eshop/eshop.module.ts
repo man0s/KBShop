@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Pipe, PipeTransform } from '@angular/core';
-
+import { NgModule } from '@angular/core';
 import { EShopComponent } from './eshop.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductsComponent } from './components/products/products.component';
@@ -16,7 +15,6 @@ import { CheckoutComponent } from './components/products/checkout/checkout.compo
 import { ProductsManagementComponent } from './components/management/products-management/products-management.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UsersManagementComponent } from './components/management/users-management/users-management.component';
-import { OrderComponent } from './components/products/order/order.component';
 import { OrderHistoryComponent } from './components/navbar/order-history/order-history.component';
 import { OrdersManagementComponent } from './components/management/orders-management/orders-management.component';
 import {SortPipe} from './pipes/sort.pipe';
@@ -33,7 +31,6 @@ import {CountPipe} from './pipes/count.pipe';
     CheckoutComponent,
     ProductsManagementComponent,
     UsersManagementComponent,
-    OrderComponent,
     OrderHistoryComponent,
     OrdersManagementComponent,
     SortPipe,

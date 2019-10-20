@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {EShopComponent} from './eshop.component';
 import {CheckoutComponent} from './components/products/checkout/checkout.component';
 import {ProductsComponent} from './components/products/products.component';
 import {ProductsManagementComponent} from './components/management/products-management/products-management.component';

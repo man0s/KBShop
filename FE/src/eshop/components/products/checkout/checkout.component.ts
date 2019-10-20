@@ -25,7 +25,11 @@ export class CheckoutComponent implements OnInit {
 
   private cartSubscription: Subscription;
 
-  public constructor(private cartService: CartService, private userService: UserService,  private formBuilder: FormBuilder, private orderService: OrderService, private router: Router) {
+  public constructor(private cartService: CartService,
+                     private userService: UserService,
+                     private formBuilder: FormBuilder,
+                     private orderService: OrderService,
+                     private router: Router) {
       this.checkoutForm = this.formBuilder.group({
         user: this.userService.getloggedInUser(),
         name: this.userService.getloggedInUser().name,
@@ -59,7 +63,7 @@ export class CheckoutComponent implements OnInit {
   public ngOnInit(): void {
     this.cart = this.cartService.getCart();
     this.cartSubscription = this.cart.subscribe((cart) => {
-      this.itemCount = cart.items.map((x) => x.quantity).reduce((p, n) => p + n, 0);
+      this.itemCount = cart.items.map((x) => x.quantity).reduce((previous, next) => previous + next, 0);
     });
   }
 

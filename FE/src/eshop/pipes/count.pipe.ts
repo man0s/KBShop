@@ -6,10 +6,9 @@ import { Product } from '../models/product.model';
 })
 export class CountPipe  implements PipeTransform {
   transform(products: Product[], countNum: number, countBool: Boolean): Product[] {
-    products = products || [];  // set records to an empty array if undefined
+    products = products || [];  // set products array to an empty array if undefined
     if(countBool) {
       products.slice(0, countNum);
-
     } else {
       products.slice();
     }

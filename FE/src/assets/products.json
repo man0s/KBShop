@@ -1,9 +1,0 @@
-[
-  { "id": "1", "title": "Apple iPhone 11 Pro 256GB", "image": "https://i.imgur.com/fKEuHYq.jpg", "price": 1429},
-  { "id": "2", "title": "Samsung QLED 4K TV QE55Q70R 55\" 4Κ Ultra HD", "image": "https://i.imgur.com/U4nbPb0.jpg", "price": 999},
-  { "id": "3", "title": "Apple iPad Tablet WiFi 7Gen 32Gb 10.2", "image": "https://i.imgur.com/61JrAYR.jpg", "price": 419},
-  { "id": "4", "title": "LG GSX961NSAZ Fridge Freezer", "image": "https://i.imgur.com/wRQxoDm.jpg", "price": 1768},
-  { "id": "5", "title": "Lenovo Legion Y530- 15ICH Laptop (Core i7 8750H/8 GB/512 GB/GTX 1060 6 GB)", "image": "https://i.imgur.com/jNxQVC3.jpg", "price": 1599},
-  { "id": "6", "title": "HP Inkjet OfficeJet Pro 9023", "image": "https://i.imgur.com/euR8gYZ.jpg", "price": 229},
-  { "id": "7", "title": "dji Mavic 2 Pro", "image": "https://i.imgur.com/eP63NSu.jpg", "price": 1499}
-]

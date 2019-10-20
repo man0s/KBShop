@@ -6,7 +6,7 @@ import { Product } from '../models/product.model';
 })
 export class SortPipe  implements PipeTransform {
     transform(products: Product[], sortBool: Boolean): Product[] {
-      products = products || [];  // set records to an empty array if undefined
+      products = products || [];  // set products array to an empty array if undefined
       if(sortBool) {
         products.sort((a: Product, b: Product) => {
           if (a.title.toLowerCase() < b.title.toLowerCase()) {

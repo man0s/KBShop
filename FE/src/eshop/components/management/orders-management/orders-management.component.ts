@@ -34,6 +34,7 @@ export class OrdersManagementComponent implements OnInit {
     this.orders.subscribe(
       () => this.orders = this.orderService.getAllOrders()
     );
+    //bug fix --> when deleting order, table isn't refreshed
     this.router.navigateByUrl('/management/orders', {skipLocationChange: true}).then(() => this.router.navigate(['/management/orders']));
   }
 
