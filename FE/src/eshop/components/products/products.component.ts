@@ -24,10 +24,10 @@ export class ProductsComponent implements OnInit {
   setSort() {
     if(this.sortBool) {
       if(this.sortAsc) this.sortAsc = false;
-      this.sortBool = false;
-    }
-    else {
+      else this.sortBool = false;
+    }  else {
       this.sortBool = true;
+      this.sortAsc = true;
     }
   }
 
