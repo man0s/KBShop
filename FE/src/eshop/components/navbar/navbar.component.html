@@ -34,13 +34,31 @@
           <li class="dropdown">	<a class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" href="#">
             Σύνδεση
           </a>
-
             <div class="dropdown-menu dropdown-menu-right" id="formLogin">
               <div class="form-group">
                 <label class="">EMail</label>
                 <input class="form-control" type="email" [(ngModel)]="userEmail" name="{{userEmail}}" />
               </div>
               <button type="submit" id="btnLogin" class="btn btn-add btn-sm" (click)="login(userEmail)" [routerLink]="['/']">Σύνδεση</button>
+            </div>
+          </li>
+          <li class="dropdown">	<a class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" href="#">
+            Εγγραφή
+          </a>
+            <div class="dropdown-menu dropdown-menu-right" id="formRegister">
+              <div class="form-group">
+                <label class="">Όνομα</label>
+                <input class="form-control" type="text" [(ngModel)]="registerName" name="{{registerName}}" />
+              </div>
+              <div class="form-group">
+                <label class="">Επώνυμο</label>
+                <input class="form-control" type="text" [(ngModel)]="registerSurname" name="{{registerSurname}}" />
+              </div>
+              <div class="form-group">
+                <label class="">EMail</label>
+                <input class="form-control" type="email" [(ngModel)]="registerEmail" name="{{registerEmail}}" />
+              </div>
+              <button type="submit" id="btnRegister" class="btn btn-add btn-sm" (click)="register(registerName, registerSurname, registerEmail)" [routerLink]="['/']">Εγγραφή</button>
             </div>
           </li>
         </ul>

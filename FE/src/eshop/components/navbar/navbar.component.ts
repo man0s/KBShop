@@ -10,6 +10,10 @@ import {Observable} from 'rxjs';
 })
 export class NavbarComponent implements OnInit {
   private userEmail: string;
+  private registerEmail: string;
+  private registerName: string;
+  private registerSurname: string;
+  private newUser: any = {};
 
   constructor(private userService: UserService) { }
 
@@ -28,6 +32,15 @@ export class NavbarComponent implements OnInit {
         },
         error => console.log(error)
       );
+  }
+
+  private register(registerName: string, registerSurname: string, registerEmail: string) {
+    this.newUser.name = registerName;
+    this.newUser.surname = registerSurname;
+    this.newUser.email = registerEmail;
+    this.userService.createUser(this.newUser);
+    this.newUser = this.userService.getUser(this.newUser.email);
+    this.userService.setloggedInUser(this.newUser);
   }
 
   private logout() {

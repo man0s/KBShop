@@ -224,3 +224,9 @@
 }
 
 #formLogin{padding: 15px; min-width:300px;}
+
+#formRegister{padding: 15px; min-width:300px;}
+
+.dropdown-toggle::after {
+  display:none;
+}
