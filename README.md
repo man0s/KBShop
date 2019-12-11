@@ -1,7 +1,7 @@
 # KBShop
 [![Build Status](https://travis-ci.com/man0s/KBShop.svg?branch=master)](https://travis-ci.com/man0s/KBShop)
 <p align="center">
-   <img src="https://i.imgur.com/uLNbbbw.jpg">
+   <img src="https://i.imgur.com/URuzMOl.jpg">
 </p>
 <br>
 <i>
