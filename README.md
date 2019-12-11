@@ -6,7 +6,7 @@
 <br>
 <i>
 <p align="center">
-  Modern eshop with management system and shopping cart based in Angular & Spring Boot
+  Modern eshop, management system and shopping cart based in Angular & Spring Boot
 </p>
 </i>
 <br>
