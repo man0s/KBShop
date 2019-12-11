@@ -1,4 +1,20 @@
-Autumn Code School 2019 Project
-Knowledge Broadband Services
+# KBShop
+[![Build Status](https://travis-ci.com/man0s/KBShop.svg?branch=master)](https://travis-ci.com/man0s/KBShop)
+<p align="center">
+   <img src="https://i.imgur.com/uLNbbbw.jpg">
+</p>
+<br>
+<i>
+<p align="center">
+  Modern eshop with management system and shopping cart based in Angular & Spring Boot
+</p>
+</i>
+<br>
 
-Emmanouil Katefidis
+## Contributing
+
+Check [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
+
+## License
+
+[Apache license 2.0](LICENSE)©
